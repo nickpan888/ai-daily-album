@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 热点画册 · 2026.05.14</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans SC', -apple-system, sans-serif;
+    background: #0a0a0f;
+    color: #e8e8ed;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .cover {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 2rem;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 50%, rgba(0, 180, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(120, 80, 255, 0.08) 0%, transparent 50%);
+    animation: pulse 8s ease-in-out infinite alternate;
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(1.1); opacity: 1; }
+  }
+  .cover-badge {
+    font-size: 0.8rem;
+    letter-spacing: 0.4em;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  .cover h1 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 900;
+    background: linear-gradient(135deg, #00d4ff, #7c3aed, #f472b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 1;
+    line-height: 1.2;
+  }
+  .cover-sub {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.5);
+    margin-top: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    position: relative;
+    z-index: 1;
+  }
+  .cover-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.25);
+    margin-top: 3rem;
+    position: relative;
+    z-index: 1;
+  }
+  .cover-source {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.2);
+    margin-top: 0.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .nav-strip {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: #12121a;
+    border-bottom: 1px solid #1e1e2e;
+    overflow-x: auto;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .nav-strip a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    white-space: nowrap;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+  }
+  .nav-strip a:hover { color: #fff; background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+  @media (max-width: 768px) { .hero-grid { grid-template-columns: 1fr; } }
+
+  .hero-card {
+    background: linear-gradient(145deg, #14141f, #1a1a2e);
+    border-radius: 24px;
+    padding: 2.5rem;
+    border: 1px solid #1e1e30;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .hero-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .hero-card.featured {
+    grid-column: 1 / -1;
+    background: linear-gradient(145deg, #1a0a2e, #0d1b2a);
+    border-color: #2d1b4e;
+  }
+  .hero-card.featured::after {
+    content: 'BREAKING';
+    position: absolute;
+    top: 1.5rem;
+    right: -2rem;
+    background: linear-gradient(90deg, #ef4444, #dc2626);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    padding: 0.25rem 3rem;
+    transform: rotate(45deg);
+  }
+  .card-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: inline-block;
+    padding: 0.25rem 0.8rem;
+    border-radius: 100px;
+  }
+  .label-red { background: rgba(239,68,68,0.2); color: #f87171; }
+  .label-blue { background: rgba(59,130,246,0.2); color: #60a5fa; }
+  .label-purple { background: rgba(139,92,246,0.2); color: #a78bfa; }
+  .label-green { background: rgba(34,197,94,0.2); color: #4ade80; }
+  .label-amber { background: rgba(245,158,11,0.2); color: #fbbf24; }
+  .label-cyan { background: rgba(6,182,212,0.2); color: #22d3ee; }
+  .label-pink { background: rgba(236,72,153,0.2); color: #f472b6; }
+  .label-white { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); }
+
+  .hero-card h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 1rem;
+  }
+  .hero-card.featured h2 { font-size: 2rem; }
+  .hero-card .meta {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.35);
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 1rem;
+  }
+  .hero-card .summary {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+  .hero-card .source-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 1rem;
+  }
+
+  .analysis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 1.5rem;
+  }
+  @media (max-width: 768px) { .analysis-grid { grid-template-columns: 1fr; } }
+
+  .analysis-item { }
+  .analysis-item .tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+  .tag-logic { color: #60a5fa; }
+  .tag-variable { color: #fbbf24; }
+  .tag-comment { color: #a78bfa; }
+
+  .analysis-item p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .card {
+    background: #14141f;
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid #1e1e30;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  }
+  .card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0.8rem 0;
+    line-height: 1.4;
+  }
+  .card .summary {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+  .card .source-tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.3);
+  }
+  .card .stat-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+  .stat-item {
+    background: rgba(255,255,255,0.04);
+    border-radius: 10px;
+    padding: 0.6rem 1rem;
+    flex: 1;
+    min-width: 100px;
+    text-align: center;
+  }
+  .stat-item .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    display: block;
+  }
+  .stat-item .desc {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.4);
+    margin-top: 0.2rem;
+  }
+
+  .card .analysis-mini {
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .card .analysis-mini .line {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 0.4rem;
+  }
+  .card .analysis-mini .line strong { color: rgba(255,255,255,0.8); }
+
+  .data-panel {
+    background: linear-gradient(135deg, #0a0a1a, #14142a);
+    border: 1px solid #1e1e3a;
+    border-radius: 24px;
+    padding: 2.5rem;
+    margin: 3rem 0;
+  }
+  .data-panel h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+  }
+  .data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.2rem;
+  }
+  .data-cell {
+    background: rgba(255,255,255,0.03);
+    border-radius: 14px;
+    padding: 1.2rem;
+    text-align: center;
+  }
+  .data-cell .val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.6rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #00d4ff, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .data-cell .lbl {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.45);
+    margin-top: 0.4rem;
+  }
+  .data-cell .sub {
+    font-size: 0.6rem;
+    color: rgba(255,255,255,0.2);
+    margin-top: 0.2rem;
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 3rem 0 1.5rem;
+  }
+  .section-title .line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, #1e1e30, transparent);
+  }
+  .section-title h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .footer {
+    margin-top: 5rem;
+    padding: 2rem 0;
+    border-top: 1px solid #1e1e2e;
+    text-align: center;
+    color: rgba(255,255,255,0.25);
+    font-size: 0.8rem;
+    line-height: 2;
+  }
+  .footer a {
+    color: rgba(255,255,255,0.3);
+    text-decoration: none;
+  }
+  .footer a:hover { color: rgba(255,255,255,0.6); }
+
+  .tagline {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.4);
+    margin-right: 0.4rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #1e1e30, transparent);
+    margin: 2rem 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ 封面 ============ -->
+<section class="cover">
+  <div class="cover-badge">◆ 超级科技侠 · 独家画册</div>
+  <h1>AI 热点·全景<br>每日狩猎报告</h1>
+  <p class="cover-sub">过去 24 小时全球 AI 重大变局深度脱水</p>
+  <p class="cover-date">2026.05.14 ｜ 第 01 期</p>
+  <p class="cover-source">数据源：TechCrunch + Brief.ai</p>
+</section>
+
+<!-- ============ 导航 ============ -->
+<nav class="nav-strip">
+  <a href="#s1">Anthropic 反超 OpenAI</a>
+  <a href="#s2">法律AI对决</a>
+  <a href="#s3">Notion AI代理</a>
+  <a href="#s4">SoftBank+亚马逊</a>
+  <a href="#s5">阿里巴巴+医疗AI</a>
+  <a href="#s6">安全与数据</a>
+  <a href="#s7">关键数据</a>
+</nav>
+
+<!-- ============ 正文 ============ -->
+<div class="container">
+
+<!-- ========== 头条：Anthropic反超OpenAI ========== -->
+<div class="hero-grid" id="s1">
+  <div class="hero-card featured">
+    <span class="card-label label-red">● 头条深度</span>
+    <span class="source-tag">TechCrunch · Ramp数据 · 5月13日</span>
+    <h2>Anthropic 企业客户首超 OpenAI：<br>AI 竞赛进入"务实主义"阶段</h2>
+    <p class="meta">支付数据公司 Ramp 跨企业支出分析 ｜ 2026.05.13</p>
+    <p class="summary">
+      Ramp 的最新跨企业支出数据显示：Anthropic 在企业客户数量上已反超 OpenAI。这是自 ChatGPT 引爆 AI 浪潮以来，首次有竞争对手在 B 端市场超越 OpenAI。背后的推动力是 Anthropic 的安全标签、企业级功能（数据隔离、审计日志）以及对中小企业市场的激进拓展——Anthropic 同日宣布正式进军小企业客户群体，Cat Wu 更预言 AI 将进入"预判需求"时代。
+    </p>
+    <div class="analysis-grid">
+      <div class="analysis-item">
+        <span class="tag tag-logic">▎底层逻辑</span>
+        <p>企业采购 AI 的核心决策因子正在从"模型能力最强"转向"风险最可控"。Anthropic 的安全叙事、可解释性承诺和"Constitutional AI"框架在合规敏感的大企业中形成了差异化溢价。当 CIO 需要对董事会解释为什么选择某个 AI 供应商，<strong>"安全"比"聪明"更好卖</strong>。</p>
+      </div>
+      <div class="analysis-item">
+        <span class="tag tag-variable">▎行业变量</span>
+        <p>奥特曼的信任危机正在直接影响 OpenAI 的 B 端增长——同日的 TechCrunch 深度报道《Who trusts Sam Altman?》揭示了法律纠纷和治理争议对品牌的可信度侵蚀。Anthropic 则巧妙地将自身的治理结构（公益公司 + 长期信托）作为竞争武器。<strong>信任正在成为 AI 市场的核心竞争维度</strong>。</p>
+      </div>
+      <div class="analysis-item">
+        <span class="tag tag-comment">▎科技侠点评</span>
+        <p>OpenAI 赢了消费者心智，但 Anthropic 正在赢企业预算。这是一个经典的"先驱 vs 稳健者"叙事。值得注意的是，Ramp 数据反映的是<strong>客户数量而非收入</strong>——Anthropic 的客户规模可能更小、客单价更低。但方向比速度重要：曲线正在以有利于 Anthropic 的方式弯折。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 次条：法律AI + 信息权力 ========== -->
+<div class="hero-grid" id="s2">
+  <div class="hero-card">
+    <span class="card-label label-purple">● 垂直战场</span>
+    <span class="source-tag">TechCrunch · ~2小时前</span>
+    <h2>Clio 5 亿美元里程碑<br>与 Anthropic 的法律 AI 对撞</h2>
+    <p class="summary">
+      法律科技公司 Clio 宣布年化收入突破 5 亿美元，恰逢 Anthropic 在法律 AI 赛道大举扩张。律师已成为 Claude 使用率最高的单一职业群体，Anthropic 的法律垂直整合速度令 Clio 等传统玩家承压。法律 AI 赛道从"流程数字化"进入"判断自动化"阶段。
+    </p>
+    <div class="analysis-grid">
+      <div class="analysis-item">
+        <span class="tag tag-logic">▎底层逻辑</span>
+        <p>法律工作的核心价值——文件审查、案例研究、合同分析——本质上是模式识别 + 知识检索的组合，这正是 LLM 最擅长的领域。法律行业的 AI 替代不是"会不会"，而是"多快"。</p>
+      </div>
+      <div class="analysis-item">
+        <span class="tag tag-variable">▎行业变量</span>
+        <p>Clio 面临的根本问题是：如果 Claude 可以直接做法律推理，为什么还需要 Clio 的 SaaS 工具？Anthropic 选择垂直整合的策略正在模糊"模型提供商"和"应用层"的边界。</p>
+      </div>
+      <div class="analysis-item">
+        <span class="tag tag-comment">▎科技侠点评</span>
+        <p>法律 AI 是 2026 年最被低估的垂直赛道。Clio 的 5 亿美元 ARR 证明市场真实存在且高速增长，但 Anthropic 的横插一脚揭示了一个残酷现实：<strong>垂直 SaaS 的护城河在基础模型能力跃迁面前正在变浅</strong>。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <span class="card-label label-amber">● 话语权</span>
+    <span class="source-tag">TechCrunch · ~2小时前</span>
+    <h2>谁来决定 AI<br>告诉你什么？</h2>
+    <p class="summary">
+      前 Meta 新闻主管 Campbell Brown 在 TechCrunch 独家访谈中抛出尖锐问题：当 AI 成为信息的第一入口——搜索、问答、新闻摘要——谁来决定信息的边界、优先级和立场？Brown 认为 AI 公司正不自觉地掌握着前所未有的信息策展权，而社会尚未就这一权力的制衡机制展开充分讨论。<br><br>
+      同日，Nature 期刊发表研究证实：国家控制媒体显著影响 AI 模型输出倾向，且影响程度随查询语言不同而变化——AI 的"客观性幻觉"面临学术层面的拆解。
+    </p>
+    <div class="analysis-grid">
+      <div class="analysis-item">
+        <span class="tag tag-logic">▎底层逻辑</span>
+        <p>AI 不是中立的，因为它学的数据不是中立的。训练数据的选择、RLHF 的偏好校准、安全过滤的边界——每一层都是隐形的价值判断。<strong>模型权重就是新时代的宪法</strong>，但这份"宪法"未经民主程序审批。</p>
+      </div>
+      <div class="analysis-item">
+        <span class="tag tag-variable">▎行业变量</span>
+        <p>Brown 的发声和 Nature 的研究将把"AI 信息透明度"推上监管议程。预计欧盟 AI 法和美国各州立法将加速对模型训练数据来源和内容策展规则的披露要求。</p>
+      </div>
+      <div class="analysis-item">
+        <span class="tag tag-comment">▎科技侠点评</span>
+        <p>社交媒体时代的"过滤气泡"问题在 AI 时代将以更隐蔽的方式复现。上次我们怪算法，这次我们会信任 AI——<strong>而信任恰恰是最危险的盲区</strong>。Campbell Brown 是提出正确问题的人。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 分段标题 ========== -->
+<div class="section-title" id="s3">
+  <div class="line"></div>
+  <h2>平台战争 · AI 代理入侵一切</h2>
+  <div class="line"></div>
+</div>
+
+<div class="card-grid">
+  <div class="card">
+    <span class="card-label label-green">● 新操作系统</span>
+    <span class="source-tag">TechCrunch · ~10小时前</span>
+    <h3>Notion 将工作空间<br>变成 AI 代理中枢</h3>
+    <p class="summary">
+      Notion 发布开发者平台，允许用户在工作空间中直接部署 AI 代理。这标志着 Notion 从"文档工具"向"AI 代理操作系统"的战略跃迁——第三方开发者可构建与 Notion 深度集成的 AI 代理，实现自动化工作流、数据分析和任务执行。
+    </p>
+    <div class="analysis-mini">
+      <div class="line"><strong>底层逻辑：</strong>文档是知识的载体，AI 代理是知识的执行者。将两者耦合在同一平台内，Notion 试图吃掉"企业知识管理 + 自动化"两块蛋糕。</div>
+      <div class="line"><strong>科技侠点评：</strong>Notion 正在做 Notion 最擅长的事——让复杂的事情看起来简单。AI 代理平台的竞争才刚刚开始，Notion 的产品基因（极简体验 + 开发者生态）可能比大公司的"平台战略"更有效。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="card-label label-blue">● 电商入口</span>
+    <span class="source-tag">TechCrunch · ~17小时前</span>
+    <h3>亚马逊推 AI 购物助手<br>Alexa+ 接管搜索栏</h3>
+    <p class="summary">
+      亚马逊在搜索栏中集成 Alexa+ 驱动的 AI 购物助手，替代此前测试的 Rufus。这是一次"搜索范式切换"——从关键词匹配到意图理解。同日亚马逊 Echo 设备上线新版 AI 购物助手，打通语音 + 文字双入口。同时，亚马逊被曝正探索代号"Transformer"的 AI 手机项目，意欲打造 AI 原生硬件入口。
+    </p>
+    <div class="stat-row">
+      <div class="stat-item">
+        <span class="num">Alexa+</span>
+        <span class="desc">驱动引擎</span>
+      </div>
+      <div class="stat-item">
+        <span class="num">搜索栏</span>
+        <span class="desc">最大流量入口</span>
+      </div>
+    </div>
+    <div class="analysis-mini">
+      <div class="line"><strong>底层逻辑：</strong>电商搜索是 AI 商业化最直接的场景——更好的意图理解 = 更高的转化率 = 更多的 GMV。亚马逊有全球最丰富的购物数据来训练这种能力。</div>
+      <div class="line"><strong>科技侠点评：</strong>从 Fire Phone 的惨败到"Transformer"的野心，11 年后 AI 给了亚马逊第二次做手机的理由。但这一次成败不在于硬件，而在于 <strong>Alexa+ 是否值得一个专属入口</strong>。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="card-label label-cyan">● 主动AI</span>
+    <span class="source-tag">TechCrunch · 5月13日</span>
+    <h3>Poppy + WhatsApp 隐身<br>AI 交互的两个方向</h3>
+    <p class="summary">
+      两款 AI 产品的同日发布展示了截然不同的方向：Poppy 推出主动式 AI 助手，自动帮用户整理数字生活；WhatsApp 在 Meta AI 对话中新增"隐身模式"，强调隐私控制。一个让 AI 更多主动介入，一个让用户对 AI 有更多控制权——两条路径的冲突将定义未来 5 年的 AI 交互设计。
+    </p>
+    <div class="analysis-mini">
+      <div class="line"><strong>底层逻辑：</strong>主动式 AI 和隐私控制是 UX 光谱的两极。最终胜出的不是某一种设计哲学，而是<strong>场景驱动的混合模式</strong>——用户需要按场景切换 AI 的主动程度。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 分段标题 ========== -->
+<div class="section-title" id="s4">
+  <div class="line"></div>
+  <h2>资本 · 供应链 · 基础设施</h2>
+  <div class="line"></div>
+</div>
+
+<div class="card-grid">
+  <div class="card">
+    <span class="card-label label-amber">● 资本回报</span>
+    <span class="source-tag">Brief.ai · AP News</span>
+    <h3>SoftBank 利润暴增<br>346 亿美元 OpenAI 押注收割</h3>
+    <p class="summary">
+      SoftBank 最新财报显示利润飙升，核心驱动是 346 亿美元 OpenAI 股份带来的回报。分析师同时警告债务压力和 AI 市场波动风险。孙正义的"AI 豪赌"正在从愿景走向资产负债表兑现。
+    </p>
+    <div class="analysis-mini">
+      <div class="line"><strong>底层逻辑：</strong>软银的策略本质是用杠杆赌 AI 范式转移。它不是分散押注，而是在 OpenAI 上下重注。这种策略在牛市中回报惊人，但对单一资产的依赖是最大脆弱性。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="card-label label-red">● 供应链</span>
+    <span class="source-tag">Brief.ai · AP News</span>
+    <h3>阿里巴巴 AI+云<br>五年目标 1000 亿美元</h3>
+    <p class="summary">
+      阿里巴巴宣布 AI+云业务五年内剑指 1000 亿美元营收，云收入同比增长 38%。通过激进降价策略争夺 AI 客户，平头哥自研芯片降低对英伟达依赖。这是中国 AI 云市场"规模换份额"策略的最新信号。
+    </p>
+    <div class="stat-row">
+      <div class="stat-item">
+        <span class="num">$1000亿</span>
+        <span class="desc">五年目标</span>
+      </div>
+      <div class="stat-item">
+        <span class="num">+38%</span>
+        <span class="desc">云收入增长</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="card-label label-pink">● 能源争议</span>
+    <span class="source-tag">TechCrunch · ~12小时前</span>
+    <h3>xAI 密西西比数据中心<br>50 台燃气轮机无监管</h3>
+    <p class="summary">
+      TechCrunch 调查报道：xAI 在密西西比数据中心运行近 50 台燃气轮机，缺乏足够环保监管。AI 算力的能源需求正在突破现有电网和环境监管框架。马斯克一面卖碳积分给其他车企，一面用燃气轮机跑 AI——叙事矛盾浮出水面。
+    </p>
+  </div>
+
+  <div class="card">
+    <span class="card-label label-blue">● 自动驾驶</span>
+    <span class="source-tag">Brief.ai · CoinCentral</span>
+    <h3>NVIDIA 联手奇瑞<br>AI 汽车 + 机器人</h3>
+    <p class="summary">
+      在 2026 北京车展上，NVIDIA 与奇瑞旗下 EXEED 星途宣布合作，将 NVIDIA 的 AI 技术引入智能驾驶和机器人领域。标志着"物理 AI"从概念走向量产。
+    </p>
+  </div>
+
+  <div class="card">
+    <span class="card-label label-white">● 医疗AI</span>
+    <span class="source-tag">TechCrunch · ~1天前</span>
+    <h3>Medicare 支付模式<br>为 AI 量身定制</h3>
+    <p class="summary">
+      Medicare 推出全新支付模式，设计上专门为 AI 驱动的医疗服务定价。TechCrunch 评论道：大多数科技圈对此毫不知情，但这可能是 AI 在医疗领域爆发的关键催化剂——当支付方的激励机制与 AI 对齐，采用率将非线性上升。
+    </p>
+    <div class="analysis-mini">
+      <div class="line"><strong>底层逻辑：</strong>医保支付模式是所有医疗创新的"水龙头"。当 Medicare 开始为 AI 诊疗付费，美国医疗体系对 AI 的接纳将从"试点"进入"规模化采购"。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="card-label label-cyan">● 创投</span>
+    <span class="source-tag">TechCrunch · 5月13日</span>
+    <h3>Origin Lab 获 800 万美元<br>向世界模型卖家游戏数据</h3>
+    <p class="summary">
+      Origin Lab 以 800 万美元种子轮亮相——它帮助游戏公司向"世界模型"构建者出售数据。这是一个全新的数据中间商模式，反映出 AI 对高质量 3D/物理世界数据的饥渴正在催生新市场。
+    </p>
+  </div>
+</div>
+
+<!-- ========== 分段标题 ========== -->
+<div class="section-title" id="s5">
+  <div class="line"></div>
+  <h2>安全 · 治理 · 地缘</h2>
+  <div class="line"></div>
+</div>
+
+<div class="card-grid">
+  <div class="card">
+    <span class="card-label label-blue">● 框架</span>
+    <span class="source-tag">Brief.ai · DefCrosNews</span>
+    <h3>全球网安机构发布<br>AI SBOM 自愿指南</h3>
+    <p class="summary">
+      全球网安机构联合发布 AI 软件物料清单（SBOM）指南，将传统 SBOM 扩展至 AI 模型、数据集和治理流程。目前为自愿框架，标准化路径不明。不透明 = 不可审计 = 不可信任。
+    </p>
+  </div>
+
+  <div class="card">
+    <span class="card-label label-red">● 地缘AI</span>
+    <span class="source-tag">Brief.ai · Nature</span>
+    <h3>官方媒体影响力<br>渗透 AI 模型输出</h3>
+    <p class="summary">
+      Nature 发表研究：国家控制媒体显著影响 AI 模型输出倾向，且随查询语言不同而变化——用中文提问时，中国官方媒体叙事的影响更显著。训练数据的政治偏向通过模型输出被放大。呼吁建立跨文化监管框架和数据透明度标准。
+    </p>
+  </div>
+
+  <div class="card">
+    <span class="card-label label-white">● 信任</span>
+    <span class="source-tag">TechCrunch · ~15小时前</span>
+    <h3>谁还信任 Sam Altman？</h3>
+    <p class="summary">
+      TechCrunch 深度特写：在 Musk 诉讼、OpenAI 治理争议和微软合同重组的背景下，Altman 的公众信任度正在经受考验。报道探讨了"创始人神话"在 AI 时代的脆弱性——当一个人控制着可能是最有影响力的技术，信任就成了最稀缺的资产。
+    </p>
+    <div class="analysis-mini">
+      <div class="line"><strong>科技侠点评：</strong>信任问题正在从 Altman 的个人形象问题变成 OpenAI 的 B 端增长瓶颈。Ramp 数据可能已经给出了答案——CEO 的公信力正在直接影响企业采购决策。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="card-label label-pink">● 研究</span>
+    <span class="source-tag">TechCrunch · ~19小时前</span>
+    <h3>Adaption AutoScientist<br>让 AI 自己训练自己</h3>
+    <p class="summary">
+      Adaption 发布 AutoScientist——一个让 AI 模型自主进行训练和优化的工具。这是"AI 自我进化"研究方向的最新进展，也引发了关于控制问题和可解释性的新讨论。
+    </p>
+  </div>
+
+  <div class="card">
+    <span class="card-label label-cyan">● 广告</span>
+    <span class="source-tag">Brief.ai · TikTok</span>
+    <h3>TikTok World 发布<br>AI 广告 + Dreamina 2.0</h3>
+    <p class="summary">
+      TikTok World 大会发布新 AI 广告格式和 AI 视频创作工具 Dreamina Seedance 2.0。AI 正在重塑数字广告创意生产链路——从"人工做创意"到"AI 批量生成 + 人工精选"。
+    </p>
+  </div>
+
+  <div class="card">
+    <span class="card-label label-white">● 合规</span>
+    <span class="source-tag">Brief.ai · NatLawReview</span>
+    <h3>Sherlocq 发布 AI 合规平台<br>覆盖 30+ 司法管辖区</h3>
+    <p class="summary">
+      Sherlocq 推出首个原生 AI 监管情报平台，为金融服务行业提供覆盖 30 多个司法管辖区的监管研究，大幅缩短合规研究时间。AI 监管科技（RegTech）赛道升温。
+    </p>
+  </div>
+</div>
+
+<!-- ========== 关键数据面板 ========== -->
+<div class="data-panel" id="s6">
+  <h2>▎关键数据一览</h2>
+  <div class="data-grid">
+    <div class="data-cell">
+      <div class="val">反超</div>
+      <div class="lbl">Anthropic 企业客户数</div>
+      <div class="sub">首超 OpenAI (Ramp数据)</div>
+    </div>
+    <div class="data-cell">
+      <div class="val">$5亿</div>
+      <div class="lbl">Clio 年化收入</div>
+      <div class="sub">法律科技新标杆</div>
+    </div>
+    <div class="data-cell">
+      <div class="val">$346亿</div>
+      <div class="lbl">SoftBank持有OpenAI</div>
+      <div class="sub">财报核心驱动力</div>
+    </div>
+    <div class="data-cell">
+      <div class="val">$1000亿</div>
+      <div class="lbl">阿里AI+云五年目标</div>
+      <div class="sub">/+38%云收入增长</div>
+    </div>
+    <div class="data-cell">
+      <div class="val">50台</div>
+      <div class="lbl">xAI 燃气轮机</div>
+      <div class="sub">环保争议中的算力</div>
+    </div>
+    <div class="data-cell">
+      <div class="val">800万</div>
+      <div class="lbl">Origin Lab 融资</div>
+      <div class="sub">世界模型数据中间商</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 结尾点评 ========== -->
+<div class="hero-card featured" style="margin-top: 2rem;" id="s7">
+  <span class="card-label label-purple">◆ 主编结语</span>
+  <h2>2026 年 5 月 14 日：<br>信任取代能力成为 AI 竞争新轴心</h2>
+  <p class="summary" style="font-size:1rem;">
+    今天的新闻有一条隐藏主线——<strong>信任</strong>。Ramp 数据证明 Anthropic 的企业客户数反超 OpenAI，背后是对"谁更可信"的投票；Campbell Brown 质问"谁决定 AI 告诉你什么"，是在追问信息策展权的合法性；Nature 研究证实官方媒体影响 AI 模型输出，揭示了训练数据的信任缺陷；《谁还信任 Sam Altman？》则把信任问题具象化为一个人的面孔。<br><br>
+    与此同时，Notion 把 AI 代理塞进每一份文档，亚马逊把 AI 购物助手塞进搜索栏，SoftBank 把 346 亿美元压在 OpenAI 身上——这些是不同的赌注，但赌的都是同一个东西：<strong>人们是否信任 AI 替自己做决策</strong>。<br><br>
+    当技术能力趋同（所有前沿模型的能力差距正在缩小），信任将成为唯一的差异化因素。这可能是 2026 年 AI 竞争格局的最大变量。
+  </p>
+  <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem;">
+    <span class="tagline">数据截至 2026.05.14 12:00 UTC</span>
+    <span class="tagline">来源：TechCrunch + Brief.ai</span>
+    <span class="tagline">超级科技侠 · 首席内容官</span>
+  </div>
+</div>
+
+<div class="footer">
+  AI 热点画册 · 超级科技侠 · 第 01 期<br>
+  数据源：
+  <a href="https://techcrunch.com/" target="_blank">TechCrunch</a> ·
+  <a href="https://www.brief.news/ai" target="_blank">Brief.ai</a><br>
+  2026.05.14
+</div>
+
+</div>
+
+</body>
+</html>

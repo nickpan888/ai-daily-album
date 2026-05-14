@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 热点画册 · 全部期次</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans SC', -apple-system, sans-serif;
+    background: #0a0a0f;
+    color: #e8e8ed;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 800px; margin: 0 auto; padding: 4rem 2rem; }
+  h1 {
+    font-size: 2.5rem; font-weight: 900;
+    background: linear-gradient(135deg, #00d4ff, #7c3aed, #f472b6);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    margin-bottom: 0.5rem;
+  }
+  .sub { color: rgba(255,255,255,0.4); margin-bottom: 3rem; font-weight: 300; }
+  .edition {
+    display: flex; align-items: center; gap: 1.5rem;
+    padding: 1.2rem 1.5rem;
+    background: #14141f;
+    border: 1px solid #1e1e30;
+    border-radius: 16px;
+    margin-bottom: 1rem;
+    transition: all 0.2s;
+    text-decoration: none; color: inherit;
+  }
+  .edition:hover {
+    border-color: #7c3aed;
+    transform: translateX(4px);
+  }
+  .edition .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.2rem; font-weight: 700;
+    color: #7c3aed; min-width: 3rem;
+  }
+  .edition .date {
+    font-size: 1rem; font-weight: 500; flex: 1;
+  }
+  .edition .badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.8rem;
+    border-radius: 100px;
+  }
+  .badge-new { background: rgba(239,68,68,0.2); color: #f87171; }
+  .badge-old { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.3); }
+  .back {
+    display: inline-block; margin-top: 3rem;
+    color: rgba(255,255,255,0.3); text-decoration: none;
+    font-size: 0.9rem;
+  }
+  .back:hover { color: rgba(255,255,255,0.6); }
+  .summary {
+    font-size: 0.85rem; color: rgba(255,255,255,0.35);
+    margin-left: auto; display: none;
+  }
+  @media (min-width: 640px) { .summary { display: block; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>AI 热点画册</h1>
+  <p class="sub">超级科技侠 · 每日 AI 深度脱水</p>
+
+  <a class="edition" href="20260515.html">
+    <span class="num">#02</span>
+    <span class="date">2026.05.15</span>
+    <span class="summary">AI 话语权战争 · 法律 AI 对决</span>
+    <span class="badge badge-new">最新</span>
+  </a>
+
+  <a class="edition" href="20260514.html">
+    <span class="num">#01</span>
+    <span class="date">2026.05.14</span>
+    <span class="summary">Anthropic 反超 OpenAI · 信任新轴心</span>
+    <span class="badge badge-old">已读</span>
+  </a>
+
+  <a class="edition" href="index.html" style="border-color:transparent;opacity:0.5;cursor:default;">
+    <span class="num">···</span>
+    <span class="date">更多期次即将上线</span>
+  </a>
+
+  <a class="back" href="index.html">← 返回最新一期</a>
+</div>
+</body>
+</html>
