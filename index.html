@@ -401,6 +401,44 @@
     background: linear-gradient(90deg, transparent, #1e1e30, transparent);
     margin: 2rem 0;
   }
+
+  @media (max-width: 640px) {
+    .cover { height: auto; min-height: 92dvh; padding: 3rem 1.5rem; }
+    .cover h1 { font-size: clamp(2rem, 8vw, 3rem); }
+    .cover-sub { font-size: 1rem; margin-top: 1rem; }
+    .nav-strip { padding: 0.6rem 1rem; gap: 0.4rem; }
+    .nav-strip a { font-size: 0.78rem; padding: 0.35rem 0.8rem; }
+    .container { padding: 1rem; }
+    .hero-grid { gap: 1rem; margin-bottom: 2rem; }
+    .hero-card { padding: 1.25rem; border-radius: 18px; }
+    .hero-card h2 { font-size: 1.25rem; }
+    .hero-card.featured h2 { font-size: 1.45rem; }
+    .hero-card.featured::after { top: 0.8rem; right: -2.2rem; font-size: 0.6rem; padding: 0.2rem 2.5rem; }
+    .hero-card .summary { font-size: 0.92rem; line-height: 1.7; }
+    .hero-card .source-tag { font-size: 0.7rem; }
+    .card-label { font-size: 0.72rem; }
+    .analysis-grid { gap: 0.8rem; margin-top: 1rem; padding-top: 1rem; }
+    .analysis-item .tag { font-size: 0.7rem; }
+    .analysis-item p { font-size: 0.9rem; }
+    .card { padding: 1.25rem; border-radius: 16px; }
+    .card h3 { font-size: 1.1rem; }
+    .card .summary { font-size: 0.88rem; }
+    .card .source-tag { font-size: 0.68rem; }
+    .card .analysis-mini .line { font-size: 0.85rem; }
+    .card-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .stat-item { padding: 0.5rem 0.8rem; min-width: 80px; }
+    .stat-item .num { font-size: 1.1rem; }
+    .data-panel { padding: 1.5rem; border-radius: 18px; margin: 2rem 0; }
+    .data-panel h2 { font-size: 1.1rem; }
+    .data-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+    .data-cell { padding: 0.8rem; }
+    .data-cell .val { font-size: 1.2rem; }
+    .data-cell .lbl { font-size: 0.7rem; }
+    .data-cell .sub { font-size: 0.58rem; }
+    .section-title { margin: 2rem 0 1rem; }
+    .section-title h2 { font-size: 1rem; }
+    .footer { font-size: 0.72rem; padding: 1.5rem 0; }
+  }
 </style>
 </head>
 <body>
@@ -416,345 +454,279 @@
 
 <!-- ============ 导航 ============ -->
 <nav class="nav-strip">
-  <a href="#s1">Anthropic 法律AI对决</a>
-  <a href="#s2">SoftBank AI赌注</a>
-  <a href="#s3">亚马逊AI购物+手机</a>
-  <a href="#s4">Notion AI代理</a>
-  <a href="#s5">xAI燃气轮机</a>
-  <a href="#s6">阿里巴巴云+AI</a>
-  <a href="#s7">AI信任话语权</a>
+  <a href="#s1">Cerebras IPO 狂飙</a>
+  <a href="#s2">OpenAI 起诉苹果</a>
+  <a href="#s3">Codex 上手机</a>
+  <a href="#s4">AI 自我构建</a>
+  <a href="#s5">Cisco 裁员转AI</a>
+  <a href="#s6">Musk vs Altman</a>
   <a href="archive.html" style="margin-left:auto; color:#7c3aed; font-weight:700;">📂 所有期次</a>
 </nav>
 
 <!-- ============ 正文 ============ -->
 <div class="container">
 
-<!-- ========== 头条：Anthropic法律AI ========== -->
+<!-- ========== 头条：Cerebras IPO ========== -->
 <div class="hero-grid" id="s1">
   <div class="hero-card featured">
     <span class="card-label label-red">● 头条深度</span>
-    <span class="source-tag">TechCrunch · 2小时前</span>
-    <h2>法律 AI 军备竞赛：<br>Clio 登顶 5 亿美金 vs Anthropic 重兵压境</h2>
-    <p class="meta">Clio $500M ARR · Anthropic 法律团队扩张 · Cat Wu 前瞻</p>
+    <span class="source-tag">TechCrunch · 13小时前</span>
+    <h2>Cerebras 史诗级 IPO：<br>融资 55 亿，首日暴涨 108%</h2>
+    <p class="meta">2026 年最大科技 IPO · AI 芯片赛道格局重塑</p>
     <p class="summary">
-      法律科技巨头 Clio 宣布年化收入突破 5 亿美元，稳坐法律 SaaS 头把交椅。但就在同一天，Anthropic 被曝正大举扩张其法律垂直团队——Claude for Legal 已整合 20 余种法律工具，律师已成为 Claude 使用率最高的单一职业群体。Anthropic 高管 Cat Wu 更在采访中断言：未来的 AI 将在你意识到需求之前就预判并满足它。两条新闻同日爆发，标志着法律 AI 赛道从"工具辅助"进入"能力替代"的转折点。
+      AI 芯片公司 Cerebras 完成 2026 年首个重磅科技 IPO，融资 55 亿美元，上市首日股价飙升 108%。这一数字不仅远超市场预期，更使其市值突破 500 亿美元大关。Cerebras 以超大晶圆级芯片（WSE-3）闻名，专为 AI 训练和推理提供高算力替代方案。此次 IPO 的火爆表现验证了资本市场对 AI 基础设施赛道的狂热——即便在英伟达占主导的格局下，投资者仍愿意为差异化算力方案支付高溢价。
     </p>
     <div class="analysis-grid">
       <div class="analysis-item">
         <span class="tag tag-logic">▎底层逻辑</span>
-        <p>法律行业是典型的高频文档处理 + 强结构化推理场景，天然适配 LLM。但真正驱动爆发的是"成本套利"——顶级律所每小时收费 1000 美元+，AI 替代的边际收益极高。Clio 做的是流程管理，Anthropic 做的是专业判断——<strong>两者的正面碰撞不可避免</strong>。</p>
+        <p>AI 芯片市场正从"英伟达独家"走向"多极格局"。Cerebras 的核心差异化在于单晶圆超大芯片架构，在特定训练场景下效率优于英伟达的 GPU 集群。资本市场的热情背后是对 AI 算力需求持续爆发的预期——<strong>当每个企业都需要自己的 AI 算力，芯片供应商的"百花齐放"是必然</strong>。</p>
       </div>
       <div class="analysis-item">
         <span class="tag tag-variable">▎行业变量</span>
-        <p>Anthropic 正在从"卖模型"转向"卖垂直解决方案"，法律是这个策略的第一个试金石。Cat Wu 的"预判式 AI"叙事暗示 Claude 正在从被动响应走向主动推理——这将对 Clio 等传统法律科技公司构成<strong>结构性威胁</strong>。值得关注：Clio 是否会从"被集成"走向"自研模型"。</p>
+        <p>Cerebras 的 IPO 成功将加速其他 AI 芯片公司的上市计划（传闻 Graphcore、SambaNova 均在筹备）。更重要的是，<strong>客户对"去英伟达化"的需求正在从口号变为真实的采购行为</strong>——Cerebras 上市后的现金储备将用于构建更完整的软件生态，这恰恰是英伟达目前最坚固的护城河。</p>
       </div>
       <div class="analysis-item">
         <span class="tag tag-comment">▎科技侠点评</span>
-        <p>法律 AI 是 2026 年最被低估的垂直赛道。Clio 的 5 亿美元 ARR 证明市场真实存在且高速增长，但 Anthropic 的横插一脚揭示了一个残酷现实：<strong>垂直 SaaS 的护城河在基础模型能力跃迁面前正在变浅</strong>。Clio 必须回答一个问题：你的网络效应够强吗？</p>
+        <p>55 亿美元融资，首日翻倍——这不是 AI 泡沫的证据，而是 AI 基础设施缺口的真实映射。<strong>英伟达的垄断不是被打破的，而是被需求撑裂的</strong>。Cerebras 要证明的不是芯片跑分，而是它能否成为客户真正的"第二选项"。这才是真正的挑战。</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ========== 次条：SoftBank + 亚马逊手机 ========== -->
+<!-- ========== 次条：OpenAI 起诉苹果 + Cisco ========== -->
 <div class="hero-grid" id="s2">
   <div class="hero-card">
-    <span class="card-label label-amber">● 资本棋局</span>
-    <span class="source-tag">Brief.ai · AP News</span>
-    <h2>SoftBank 利润暴增<br>346 亿美元 OpenAI 押注收割</h2>
-    <p class="meta">孙正义的 AI 豪赌正在兑现</p>
+    <span class="card-label label-amber">● 法律风暴</span>
+    <span class="source-tag">TechCrunch · 10小时前</span>
+    <h2>OpenAI 准备起诉苹果<br>合作伙伴变敌人</h2>
+    <p class="meta">又是一起"烧桥"事件 · Connie Loizos 深度分析</p>
     <p class="summary">
-      SoftBank 最新财报显示利润大幅飙升，核心驱动力是其持有的 346 亿美元 OpenAI 股份带来的巨额回报。分析师同时警告债务压力和 AI 市场波动的风险。SoftBank 的 AI 策略从"愿景基金讲故事"进入"资产负债表兑现"阶段。
+      OpenAI 据报正在准备对苹果提起法律诉讼，具体缘由尚未完全公开，但此举标志着二者关系从合作走向对抗。TechCrunch 记者 Connie Loizos 指出，这不会是第一个感到被 OpenAI "烧伤"的合作伙伴——从微软合同重组到与多家媒体的授权纠纷，OpenAI 的激进扩张策略正在不断燃烧合作伙伴关系。在 Sam Altman 面临 Musk 诉讼和治理争议的背景下，OpenAI 的法律战正在从"防御"转向"进攻"。
     </p>
     <div class="analysis-grid">
       <div class="analysis-item">
         <span class="tag tag-logic">▎底层逻辑</span>
-        <p>软银的策略本质上是<strong>用杠杆赌 AI 版本的"范式转移"</strong>。这与其他 VC 不同——它不是分散押注，而是在 OpenAI 上下重注。这种策略在牛市中回报惊人，但对 OpenAI 单一资产的依赖也是其最大脆弱性。</p>
+        <p>OpenAI 的商业模式正经历从"研究实验室"到"商业巨头"的痛苦转型。每一次合作关系的破裂，本质上都是<strong>价值分配谈判的失败</strong>——OpenAI 认为自己创造了全部价值，而合作伙伴认为自己被利用了。这不是法律问题，是利益分配模型的设计问题。</p>
       </div>
       <div class="analysis-item">
         <span class="tag tag-variable">▎行业变量</span>
-        <p>孙正义的兑现节奏将对 OpenAI 的 IPO 估值产生直接支撑。软银正与英伟达谈判开发"日本制造"AI 服务器——<strong>从财务投资转向产业整合</strong>，这值得密切关注。</p>
+        <p>如果 OpenAI 真的起诉苹果，这可能成为科技行业"AI 合作伙伴关系"法律框架的标杆案例。核心问题：<strong>当 AI 能力嵌入平台，谁拥有数据的价值？</strong> 这个案子的判决将影响未来 5 年所有 AI 合作合同的条款设计。</p>
       </div>
       <div class="analysis-item">
         <span class="tag tag-comment">▎科技侠点评</span>
-        <p>孙正义在 WeWork 上亏的钱，正在 AI 上连本带利赚回来。但 346 亿美元集中持仓一个未上市的 AI 公司——这要么是天才，要么是下一个超级风险。目前看，是前者。</p>
+        <p>Altman 正在把所有潜在的盟友变成敌人。Musk 在起诉他，微软在疏远他，苹果在被起诉——这不仅仅是"商业竞争"，这是<strong>治理结构缺陷的外显</strong>。一家非营利转营利、结构混乱的公司，迟早会在每一段关系上撞车。</p>
       </div>
     </div>
   </div>
 
   <div class="hero-card">
-    <span class="card-label label-blue">● 硬件野心</span>
-    <span class="source-tag">Brief.ai · Ars Technica</span>
-    <h2>亚马逊密谋 AI 手机<br>"Transformer" 项目浮出水面</h2>
-    <p class="meta">吸取 Fire Phone 教训，走 AI + 生态路线</p>
+    <span class="card-label label-blue">● 就业重构</span>
+    <span class="source-tag">TechCrunch · 15小时前</span>
+    <h2>Cisco 裁 4000 人<br>创纪录营收全砸 AI</h2>
+    <p class="meta">传统 IT 巨头"断臂求生" · 季度收入创历史新高</p>
     <p class="summary">
-      据 Ars Technica 报道，亚马逊正在探索一款内部代号"Transformer"的 AI 驱动智能手机。与 2014 年惨败的 Fire Phone 不同，新策略聚焦 AI 深度集成和 Alexa 生态绑定，而非硬件参数竞争。此举的背景是亚马逊同日推出 Alexa+ 驱动的 AI 购物助手，逐步构建从语音到设备的全栈 AI 布局。
+      Cisco 宣布裁减近 4000 个岗位，同时报告"创纪录的季度营收"。裁员省下的成本将重新投入 AI 基础设施建设。这是传统 IT 巨头在 AI 浪潮中最激进的资源重配案例之一——当网络设备需求趋于平稳，AI 数据中心对高速网络基础设施的需求正在成为新的增长引擎。Cisco 的转型信号：<strong>要么 AI，要么消亡</strong>。
     </p>
     <div class="analysis-grid">
       <div class="analysis-item">
         <span class="tag tag-logic">▎底层逻辑</span>
-        <p>智能手机是 AI 助手的最高频交互终端。亚马逊不能永远依赖苹果和 Google 的设备来承载 Alexa。自研硬件的逻辑不是卖手机，而是<strong>掌握用户与 AI 交互的第一触点</strong>。</p>
+        <p>Cisco 裁员不是"削减成本"，而是<strong>资源重配</strong>。AI 数据中心需要更高带宽、更低延迟的网络架构，这是 Cisco 传统业务之外的全新市场。创纪录的营收证明核心业务仍在产生现金，但管理层判断这些现金的未来价值在于 AI 基础设施而非传统网络设备。</p>
       </div>
       <div class="analysis-item">
         <span class="tag tag-variable">▎行业变量</span>
-        <p>AI 手机正在成为新赛道——OpenAI/Google 有软件，亚马逊想走软硬一体。问题是消费者是否愿意为"AI 体验"更换手机生态。Transformer 的成败关键在于<strong>Alexa+ 是否真的足够好</strong>。</p>
+        <p>Cisco 的 4000 人裁员是 2026 年"AI 替代白领岗位"趋势的最新数据点。与 Cloudflare 的 1100 人、通用汽车的数百人不同，Cisco 的裁员幅度更大、转型方向更明确——<strong>从"卖网络设备"到"卖 AI 基础设施"</strong>。这个转型如果成功，将是传统 IT 巨头在 AI 时代重获新生的范本。</p>
       </div>
       <div class="analysis-item">
         <span class="tag tag-comment">▎科技侠点评</span>
-        <p>Fire Phone 烧了 1.7 亿美元，是亚马逊史上最大失败之一。贝佐斯当时说"失败是创新的代价"。11 年后，AI 给了亚马逊第二次尝试的资格。但历史不会简单重复——这一次<strong>成败不在于硬件，而在于 AI 是否值得一个专属入口</strong>。</p>
+        <p>"创纪录营收 + 裁员 4000"——这组数字将成为 2026 年科技行业的标志性叙事。它告诉我们：<strong>即使你的公司做得很好，如果做得不对，你同样会被裁</strong>。个人的安全感不再来自公司业绩，而来自你是否在做 AI 相关的事情。</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ========== 分段标题 ========== -->
+<!-- ========== 分段标题：平台级重构 ========== -->
 <div class="section-title" id="s3">
   <div class="line"></div>
-  <h2>平台级重构 · AI 代理与信息权力</h2>
+  <h2>平台级重构 · 移动 AI 与自我进化</h2>
   <div class="line"></div>
 </div>
 
 <div class="card-grid">
   <div class="card">
-    <span class="card-label label-green">● 平台进化</span>
-    <span class="source-tag">TechCrunch · 9小时前</span>
-    <h3>Notion 将工作空间<br>变成 AI 代理中枢</h3>
+    <span class="card-label label-purple">● 移动AI</span>
+    <span class="source-tag">TechCrunch · 8小时前</span>
+    <h3>OpenAI Codex<br>即将登陆手机</h3>
     <p class="summary">
-      Notion 发布全新开发者平台，允许用户在工作空间中直接部署 AI 代理。这标志着 Notion 从"文档协作工具"向"AI 代理操作系统"的战略跃迁——第三方开发者可构建与 Notion 深度集成的 AI 代理，实现自动化工作流、数据分析和任务执行。这是生产力工具 AI 化最激进的尝试之一。
-    </p>
-    <div class="analysis-mini">
-      <div class="line"><strong>底层逻辑：</strong>文档是知识的载体，AI 代理是知识的执行者。将两者耦合在同一平台内，Notion 试图吃掉"企业知识管理 + 自动化"两块蛋糕。</div>
-      <div class="line"><strong>行业变量：</strong>Notion 此举直接对标 Atlassian 和 Google Workspace。开发者平台的网络效应一旦建立，切换成本将大幅提升——这是 Notion 最需要建立、但也是最难建立的壁垒。</div>
-      <div class="line"><strong>科技侠点评：</strong>Notion 正在做 Notion 最擅长的事——让复杂的事情看起来简单。AI 代理平台的竞争才刚刚开始，Notion 的产品基因（极简体验 + 开发者生态）可能比大公司的"平台战略"更有效。</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <span class="card-label label-red">● 话语权之争</span>
-    <span class="source-tag">TechCrunch · 1小时前</span>
-    <h3>谁来决定 AI<br>告诉你什么？</h3>
-    <p class="summary">
-      前 Meta 新闻主管 Campbell Brown 在 TechCrunch 独家访谈中抛出核心问题：当 AI 成为信息的主要过滤器，谁来决定什么值得你看、什么不值得？Brown 认为 AI 公司的信息策展权力堪比社交媒体时代的算法推荐，但透明度远低于后者。这触及 AI 时代信息权力的终极追问：<strong>AI 的"客观性"可能是最危险的幻觉</strong>。
-    </p>
-    <div class="analysis-mini">
-      <div class="line"><strong>底层逻辑：</strong>AI 的信息输出不是中立的——训练数据的选择、RLHF 的偏好校准、安全过滤的边界，每一层都是隐形的价值判断。当数十亿人依赖 AI 获取信息，<strong>模型权重就是新时代的宪法</strong>。</div>
-      <div class="line"><strong>科技侠点评：</strong>社交媒体时代的"过滤气泡"问题在 AI 时代将以更隐蔽的方式复现。不同的是，上次我们怪算法，这次我们会信任 AI——而信任恰恰是最危险的盲区。</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <span class="card-label label-cyan">● 购物入口</span>
-    <span class="source-tag">TechCrunch · 16小时前</span>
-    <h3>亚马逊推 AI 购物助手<br>Alexa+ 接管搜索栏</h3>
-    <p class="summary">
-      亚马逊在搜索栏中集成 Alexa+ 驱动的 AI 购物助手，帮助用户进行产品发现、价格比较和购买决策。该功能替代了此前测试的 Rufus 购物助手，标志着亚马逊正式将 AI 对话式购物作为核心搜索体验——这是电商搜索从"关键词匹配"到"意图理解"的范式切换。同时在 Echo 设备上线新版 AI 购物助手。
+      OpenAI 宣布其代码生成工具 Codex 将推出移动端版本。Codex 此前的核心场景是桌面 IDE 插件和 API，此次上手机意味着 OpenAI 正在将 AI 编程能力从"开发者工具"下沉为"通用生产力工具"——任何人都可以通过手机自然语言描述需求，由 Codex 生成代码。这是 AI 编程民主化的关键一步，也是对 GitHub Copilot 移动战略的直接回应。
     </p>
     <div class="stat-row">
       <div class="stat-item">
-        <span class="num">Alexa+</span>
-        <span class="desc">驱动引擎</span>
+        <span class="num">Codex</span>
+        <span class="desc">AI 编程工具</span>
       </div>
       <div class="stat-item">
-        <span class="num">搜索栏</span>
-        <span class="desc">最大流量入口</span>
+        <span class="num">手机端</span>
+        <span class="desc">全平台覆盖</span>
       </div>
     </div>
     <div class="analysis-mini">
-      <div class="line"><strong>底层逻辑：</strong>电商搜索是 AI 商业化最直接的场景——更好的意图理解 = 更高的转化率 = 更多的 GMV。亚马逊有最丰富的购物数据来训练这种能力。</div>
+      <div class="line"><strong>底层逻辑：</strong>编程正在从"专业技能"变成"通用表达能力"。Codex 上手机意味着 OpenAI 瞄准的不是开发者市场，而是<strong>每个有手机、有想法的人</strong>。这跟 Canva 让设计民主化是同一逻辑。</div>
+      <div class="line"><strong>科技侠点评：</strong>当你的手机可以帮你写代码，"不会编程"这个借口就要过期了。这对低代码/无代码平台是一个预警——AI 原生编程可能直接跳过中间层。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="card-label label-pink">● 自我进化</span>
+    <span class="source-tag">TechCrunch · 9小时前</span>
+    <h3>当 AI 开始<br>自己构建自己</h3>
+    <p class="summary">
+      Russell Brandom 发表深度分析：AI 系统正在获得自主设计和构建新 AI 模型的能力。这不是科幻——AutoML、神经架构搜索和最近的"AI 科学家"项目已经展示了 AI 在模型设计、训练优化和架构创新上的自主能力。当 AI 能够自动化 AI 研发循环，人类在 AI 创新中的角色将从"设计者"退化为"监督者"。文章提出核心警示：<strong>我们是否准备好面对 AI 创新速度超越人类理解速度的时刻？</strong>
+    </p>
+    <div class="analysis-mini">
+      <div class="line"><strong>底层逻辑：</strong>AI 自我构建的关键不在技术，而在速度——当 AI 可以 24/7 不间断地迭代模型，人类 9-5 的研发节奏将彻底失效。<strong>递归自我改进</strong>是通往 AGI 最陡峭但最直接的路径。</div>
+      <div class="line"><strong>行业变量：</strong>这引发了"对齐问题"的新维度——如果 AI 设计的模型比人类设计的更难以解释，我们如何确保它们的安全？Anthropic 的可解释性研究和 OpenA 的超级对齐团队正在竞速解决这个问题。</div>
+      <div class="line"><strong>科技侠点评：</strong>每一次我们说"AI 还不能做 X"，X 的边界就在后退。AI 自我构建不是一个"会不会"的问题，而是一个"什么时候"的问题。而真正可怕的不是 AI 能自我构建，而是<strong>人类可能看不懂它构建了什么</strong>。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="card-label label-green">● 数据供应链</span>
+    <span class="source-tag">TechCrunch · 15小时前</span>
+    <h3>Wirestock 获 2300 万美元<br>向 AI 实验室供应创意数据</h3>
+    <p class="summary">
+      Wirestock 完成 2300 万美元融资，核心业务是向 AI 研究实验室提供高质量的创意多模态训练数据。这揭示了一个快速增长的"AI 数据供应链"赛道——当公开互联网数据被爬取殆尽，AI 公司愿意为高质量、合规授权的训练数据支付高价。Wirestock 的商业模式是连接创作者与 AI 公司，让摄影师、设计师的作品成为 AI 模型的训练素材，并从中收取平台佣金。
+    </p>
+    <div class="stat-row">
+      <div class="stat-item">
+        <span class="num">$23M</span>
+        <span class="desc">融资额</span>
+      </div>
+      <div class="stat-item">
+        <span class="num">多模态</span>
+        <span class="desc">图/文/视频</span>
+      </div>
+    </div>
+    <div class="analysis-mini">
+      <div class="line"><strong>底层逻辑：</strong>AI 训练数据正在经历从"爬虫免费获取"到"合规授权采购"的范式转移。高质量、合规、多样化的训练数据将成为 AI 公司的核心竞争壁垒之一——<strong>数据供应链就是 AI 时代的"石油管道"</strong>。</div>
     </div>
   </div>
 </div>
 
-<!-- ========== 分段标题 ========== -->
+<!-- ========== 分段标题：争议与治理 ========== -->
 <div class="section-title" id="s4">
   <div class="line"></div>
-  <h2>基础设施 · 能源与治理</h2>
+  <h2>法律 · 人才 · 治理</h2>
   <div class="line"></div>
 </div>
 
 <div class="card-grid">
   <div class="card">
-    <span class="card-label label-amber">● 能源争议</span>
-    <span class="source-tag">TechCrunch · 11小时前</span>
-    <h3>xAI 在密西西比数据中心<br>运行近 50 台燃气轮机</h3>
+    <span class="card-label label-amber">● 法律对决</span>
+    <span class="source-tag">TechCrunch · 7小时前</span>
+    <h3>Musk 诉 Altman 案<br>陪审团到底要判什么？</h3>
     <p class="summary">
-      TechCrunch 调查报道：马斯克的 xAI 在其密西西比数据中心运行近 50 台燃气轮机，且缺乏足够的环保监管。这些燃气轮机为 AI 训练提供电力，但排放问题引发当地社区和环保组织强烈抗议。这是 AI 算力扩张与环保合规之间日益尖锐的矛盾的最新案例。
+      TechCrunch 发布庭审前瞻，解析 Musk 起诉 Altman 案中陪审团需要决定的核心法律问题：OpenAI 是否违背了其非营利使命？Musk 的捐赠是否构成可强制执行的合同？Altman 是否违反信托责任？该案的判决将对 OpenAI 的治理结构、乃至整个 AI 行业"非营利包装商业"的模式产生深远影响。
+    </p>
+    <div class="analysis-mini">
+      <div class="line"><strong>底层逻辑：</strong>本案的核心不是 Musk vs Altman 的个人恩怨，而是<strong>AI 公司"以非营利之名，行商业之实"的治理合法性</strong>。如果 Musk 胜诉，将迫使整个 AI 行业重新设计治理结构。</div>
+      <div class="line"><strong>科技侠点评：</strong>Musk 和 Altman 曾经是盟友，现在在法庭上互撕——这不仅仅是两个人的故事，它象征着<strong>AI 行业从"理想主义同盟"到"利益冲突"的集体青春期</strong>。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="card-label label-red">● 人才流失</span>
+    <span class="source-tag">TechCrunch · 8小时前</span>
+    <h3>SpaceXAI 合并后<br>人员持续流失</h3>
+    <p class="summary">
+      Rebecca Bellan 报道：SpaceXAI 自合并以来持续出现员工流失。SpaceX 收购 AI 公司后的整合过程并不顺利，文化冲突、战略方向不确定性和薪酬竞争导致关键人才外流。这反映了 AI 行业人才争夺战的另一面——<strong>不是所有合并都能留住人才，尤其在卖方市场</strong>。
     </p>
     <div class="stat-row">
       <div class="stat-item">
-        <span class="num">~50台</span>
-        <span class="desc">燃气轮机</span>
+        <span class="num">持续</span>
+        <span class="desc">人员流失</span>
       </div>
       <div class="stat-item">
-        <span class="num">争议中</span>
-        <span class="desc">环保合规</span>
+        <span class="num">合并后</span>
+        <span class="desc">整合阵痛</span>
       </div>
     </div>
     <div class="analysis-mini">
-      <div class="line"><strong>底层逻辑：</strong>AI 算力的能源需求正在突破现有电网和环境监管框架。当"算力优先"遇到"环保合规"，这是一个没有简单答案的冲突——<strong>GPT 的每一次推理都有碳成本</strong>。</div>
-      <div class="line"><strong>科技侠点评：</strong>马斯克一面卖碳积分给其他车企，一面用燃气轮机跑 AI——这不仅是环保问题，更是一个叙事矛盾。AI 行业不能一边声称拯救世界，一边拒绝为自己的能源消耗负责。</div>
+      <div class="line"><strong>底层逻辑：</strong>AI 人才市场是极端的卖方市场——顶尖 AI 研究员有几十个工作机会。任何公司的不确定性（合并、裁员、战略摇摆）都会立即触发人才外流。SpaceXAI 的困境不是个例，而是<strong>所有试图通过收购进入 AI 领域的公司的警钟</strong>。</div>
     </div>
   </div>
 
   <div class="card">
-    <span class="card-label label-purple">● 能源 IPO</span>
-    <span class="source-tag">TechCrunch · 13小时前</span>
-    <h3>Fervo Energy IPO 大涨 33%<br>AI 数据中心需求引爆地热</h3>
+    <span class="card-label label-cyan">● 开发工具</span>
+    <span class="source-tag">TechCrunch · 10小时前</span>
+    <h3>Clawdmeter：把你的<br>Claude Code 变成桌面仪表盘</h3>
     <p class="summary">
-      地热初创公司 Fervo Energy 在 IPO 首日飙升 33%，直接驱动力是 AI 数据中心对清洁基荷电力的巨大需求。Fervo 利用增强型地热技术（EGS）为数据中心提供 24/7 不间断清洁电力，成为 AI 能源焦虑中的稀缺资产。
+      Sarah Perez 报道了一款名为 Clawdmeter 的桌面小工具，可以将 Claude Code 的使用统计数据可视化在一个迷你物理屏幕上。这虽是一则"轻科技"，却折射出 AI 开发工具的日常化——当开发者开始为 AI 编程工具做使用量看板，说明<strong>AI 编程已经从"尝鲜"变成了"日常工作流的核心基础设施"</strong>。
     </p>
     <div class="analysis-mini">
-      <div class="line"><strong>底层逻辑：</strong>AI 数据中心的电力需求激增（预计 2026 年全球数据中心用电 415 TWh），但风能和太阳能无法提供稳定的基荷电力。地热 + 核电成为 AI 基础设施投资的<strong>隐形赢家</strong>。</div>
+      <div class="line"><strong>科技侠点评：</strong>当一个技术有了自己的"使用量仪表盘"，它就正式成年了。Clawdmeter 虽小，但它意味着 AI 编程工具正在经历从"新奇"到"计量"的阶段——而计量是商业化的前奏。</div>
     </div>
-  </div>
-
-  <div class="card">
-    <span class="card-label label-white">● 供应链</span>
-    <span class="source-tag">Brief.ai · AP News</span>
-    <h3>阿里巴巴加码 AI+云<br>五年内剑指 1000 亿美元</h3>
-    <p class="summary">
-      阿里巴巴宣布 AI+云业务五年内目标收入 1000 亿美元，云计算收入同比增长 38%。尽管利润率承压，但阿里正通过降价策略争夺 AI 客户，同时推进自研芯片（平头哥）降低对英伟达的依赖。
-    </p>
-    <div class="stat-row">
-      <div class="stat-item">
-        <span class="num">$1000亿</span>
-        <span class="desc">五年目标</span>
-      </div>
-      <div class="stat-item">
-        <span class="num">+38%</span>
-        <span class="desc">云收入增长</span>
-      </div>
-    </div>
-    <div class="analysis-mini">
-      <div class="line"><strong>行业变量：</strong>阿里云的降价策略正在重塑中国 AI 云市场格局。与 AWS/Azure 不同，阿里云的竞争策略更注重<strong>规模换份额</strong>，这对中国 AI 初创公司是利好，对利润率是压力。</div>
-    </div>
-  </div>
-</div>
-
-<!-- ========== 分段标题 ========== -->
-<div class="section-title" id="s5">
-  <div class="line"></div>
-  <h2>安全 · 治理 · 劳动力</h2>
-  <div class="line"></div>
-</div>
-
-<div class="card-grid">
-  <div class="card">
-    <span class="card-label label-blue">● 框架</span>
-    <span class="source-tag">Brief.ai · DefCrosNews</span>
-    <h3>全球网安机构发布<br>AI SBOM 指南</h3>
-    <p class="summary">
-      全球多家网络安全机构联合发布 AI 软件物料清单（SBOM）框架，将传统 SBOM 扩展至覆盖 AI 模型、数据集和治理流程。目前该框架仍为自愿性质，标准化路径尚不明朗。
-    </p>
-    <div class="analysis-mini">
-      <div class="line"><strong>底层逻辑：</strong>AI 供应链的透明度是安全治理的基础。没有 SBOM，你无法知道你依赖的模型用的是什么数据、经过了什么训练——<strong>不透明=不可审计=不可信任</strong>。</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <span class="card-label label-red">● 数据泄露</span>
-    <span class="source-tag">TechCrunch · 2天前</span>
-    <h3>美国银行承认<br>客户数据经 AI 应用泄露</h3>
-    <p class="summary">
-      某美国银行披露安全事件：员工将客户数据输入 AI 应用后导致敏感信息泄露。这是企业级 AI 采用中"影子 IT"风险的最新案例——当员工绕过合规流程使用 AI，数据安全边界就被无声打破。
-    </p>
-    <div class="analysis-mini">
-      <div class="line"><strong>行业变量：</strong>企业 AI 采用面临的核心矛盾——生产力提升 vs 数据安全——正在从理论走向实战。这解释了为什么 Anthropic 等公司的企业级安全功能（数据隔离、审计日志）成为差异化竞争力。</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <span class="card-label label-pink">● 劳动力</span>
-    <span class="source-tag">TechCrunch · 5月8日</span>
-    <h3>Cloudflare：AI 让 1100<br>个岗位消失</h3>
-    <p class="summary">
-      Cloudflare 披露 AI 已使其 1100 个岗位过时，尽管公司收入创历史新高。同日报道：通用汽车裁减数百名 IT 员工以转向 AI 人才招聘。AI 对白领工作岗位的替代正在从"预测"变为"财报中的事实"。
-    </p>
-    <div class="analysis-mini">
-      <div class="line"><strong>底层逻辑：</strong>AI 对就业的冲击不是"某一天突然发生"，而是每个季度在财报电话会上静默报告：收入创新高 + 岗位被替代。这组组合拳比任何研究论文都更有说服力。</div>
-      <div class="line"><strong>科技侠点评：</strong>Cloudflare 不是异类——它是第一个直接承认的。每个科技公司的 CFO 都在做同样的计算。2026 年的核心劳动力问题是：<strong>被 AI 替代的岗位，谁来创造新的？</strong></div>
-    </div>
-  </div>
-
-  <div class="card">
-    <span class="card-label label-white">● 地缘</span>
-    <span class="source-tag">Brief.ai · Nature</span>
-    <h3>研究表明：官方媒体<br>影响 AI 模型输出</h3>
-    <p class="summary">
-      Nature 发表研究：国家控制媒体——尤其是中国官方媒体——的内容显著影响 AI 模型的输出倾向，且影响程度取决于查询语言。研究表明训练数据的政治偏向会通过模型输出被放大，呼吁训练数据透明度和跨文化监管框架。
-    </p>
-    <div class="analysis-mini">
-      <div class="line"><strong>底层逻辑：</strong>AI 模型是训练数据的"蒸馏产物"。当某国的官方媒体占训练语料的重要比例，模型的"世界观"必然反映该国的官方叙事——<strong>没有中立的模型，只有透明的训练数据</strong>。</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <span class="card-label label-cyan">● 创业</span>
-    <span class="source-tag">TechCrunch · 5月12日</span>
-    <h3>Vapi 估值 5 亿美元<br>击败 40 对手拿下 Ring</h3>
-    <p class="summary">
-      AI 语音初创公司 Vapi 在 Amazon Ring 的供应商竞标中击败 40 多家对手，估值达到 5 亿美元。这是 AI 语音赛道竞争白热化的缩影——垂直场景 + 大客户绑定正在成为创业公司的最优策略。
-    </p>
-  </div>
-
-  <div class="card">
-    <span class="card-label label-amber">● 广告</span>
-    <span class="source-tag">Brief.ai · TikTok</span>
-    <h3>TikTok 推 AI 广告方案<br>Dreamina Seedance 2.0</h3>
-    <p class="summary">
-      TikTok World 大会发布 AI 驱动的广告格式和 AI 辅助视频创作工具 Dreamina Seedance 2.0，同时推出应用内旅行预订功能。AI 正在重塑数字广告的创意生产链路——从"人工做创意"到"AI 批量生成 + 人工精选"。
-    </p>
   </div>
 </div>
 
 <!-- ========== 关键数据面板 ========== -->
-<div class="data-panel" id="s6">
+<div class="data-panel" id="s5">
   <h2>▎关键数据一览</h2>
   <div class="data-grid">
     <div class="data-cell">
-      <div class="val">$5亿</div>
-      <div class="lbl">Clio 年化收入</div>
-      <div class="sub">法律科技标杆</div>
+      <div class="val">$55亿</div>
+      <div class="lbl">Cerebras IPO 融资额</div>
+      <div class="sub">2026 最大科技 IPO</div>
     </div>
     <div class="data-cell">
-      <div class="val">$346亿</div>
-      <div class="lbl">SoftBank 持有 OpenAI</div>
-      <div class="sub">财报驱动核心</div>
+      <div class="val">+108%</div>
+      <div class="lbl">Cerebras 首日涨幅</div>
+      <div class="sub">市值破 500 亿</div>
     </div>
     <div class="data-cell">
-      <div class="val">+33%</div>
-      <div class="lbl">Fervo Energy IPO</div>
-      <div class="sub">AI数据中心驱动</div>
+      <div class="val">4000</div>
+      <div class="lbl">Cisco 裁员人数</div>
+      <div class="sub">创纪录营收 + 转投 AI</div>
     </div>
     <div class="data-cell">
-      <div class="val">$1000亿</div>
-      <div class="lbl">阿里AI+云五年目标</div>
-      <div class="sub">/+38%云收入增长</div>
+      <div class="val">$2300万</div>
+      <div class="lbl">Wirestock 融资</div>
+      <div class="sub">AI 数据供应链</div>
     </div>
     <div class="data-cell">
-      <div class="val">1100</div>
-      <div class="lbl">Cloudflare 消失岗位</div>
-      <div class="sub">AI替代已兑现</div>
+      <div class="val">起诉</div>
+      <div class="lbl">OpenAI → Apple</div>
+      <div class="sub">合作伙伴变诉讼对手</div>
     </div>
     <div class="data-cell">
-      <div class="val">50台</div>
-      <div class="lbl">xAI 燃气轮机</div>
-      <div class="sub">环保争议中的算力</div>
+      <div class="val">手机</div>
+      <div class="lbl">Codex 登陆移动端</div>
+      <div class="sub">AI 编程民主化</div>
+    </div>
+    <div class="data-cell">
+      <div class="val">自建</div>
+      <div class="lbl">AI 自我构建</div>
+      <div class="sub">人类速度追不上 AI</div>
+    </div>
+    <div class="data-cell">
+      <div class="val">流失</div>
+      <div class="lbl">SpaceXAI 人才出走</div>
+      <div class="sub">合并整合阵痛</div>
     </div>
   </div>
 </div>
 
 <!-- ========== 结尾点评 ========== -->
-<div class="hero-card featured" style="margin-top: 2rem;" id="s7">
+<div class="hero-card featured" style="margin-top: 2rem;" id="s6">
   <span class="card-label label-purple">◆ 主编结语</span>
-  <h2>2026 年 5 月 15 日：<br>AI 的话语权战争全面开打</h2>
+  <h2>2026 年 5 月 15 日：<br>AI 的"成人礼"——钱、法律与自我意识</h2>
   <p class="summary" style="font-size:1rem;">
-    今天的新闻看似分散，实则围绕一个核心命题——<strong>AI 时代的权力分配</strong>。Campbell Brown 问"谁来决定 AI 告诉你什么"，Notion 问"AI 代理应该住在哪里"，亚马逊问"谁拥有 AI 购物入口"，Anthropic 问"AI 能不能预判你的需求"。这些不是产品问题，<strong>是权力问题</strong>。<br><br>
-    与此同时，Clio 的 5 亿美金和 Cloudflare 的 1100 个消失岗位给出了硬币的两面：AI 创造价值的速度，与它消灭旧岗位的速度，是同一条曲线。SoftBank 的 346 亿赌注和 Fervo 的 IPO 暴涨则告诉我们，资本已经做出了选择——<strong>无论你在哪个赛道，AI 都在重新定义你的竞争边界</strong>。<br><br>
-    超级科技侠将持续追踪这些底层变量——因为噪音会消失，但结构不会说谎。
+    今天的新闻可以被归纳为三个关键词：<strong>钱、法律、自我意识</strong>。<br><br>
+    Cerebras 55 亿美元 IPO 暴涨 108%，告诉我们资本市场对 AI 基础设施的饥渴远未满足——这不是泡沫，这是缺口。Cisco 裁 4000 人投 AI、「创纪录营收」与「史上最大裁员」同时发生，告诉我们传统巨头正在用最残酷的方式重新配置资源。<br><br>
+    OpenAI 准备起诉苹果、Musk 诉 Altman 案即将开庭——两场法律战揭示了一个深层问题：<strong>AI 行业的治理结构还没有为它的商业体量做好准备</strong>。OpenAI 的「非营利外壳 + 商业内核」模式正在被法律挑战撕开裂缝。<br><br>
+    最值得深思的是最后一层：Codex 上手机、AI 开始自我构建、Wirestock 构建 AI 数据供应链——AI 正在从"工具"变成"自给自足的生态"。当一个系统开始自己设计自己、自己训练自己、自己获取数据，<strong>人类的位置在哪里？这个问题的紧迫性比大多数人意识到的要快得多</strong>。
   </p>
   <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem;">
-    <span class="tagline">数据截至 2026.05.15 12:00 UTC</span>
+    <span class="tagline">数据截至 2026.05.15 14:00 UTC</span>
     <span class="tagline">来源：TechCrunch + Brief.ai</span>
     <span class="tagline">超级科技侠 · 首席内容官</span>
   </div>
@@ -765,7 +737,8 @@
   数据源：
   <a href="https://techcrunch.com/" target="_blank">TechCrunch</a> ·
   <a href="https://www.brief.news/ai" target="_blank">Brief.ai</a><br>
-  2026.05.15
+  2026.05.15 ·
+  <a href="archive.html">查看所有期次 →</a>
 </div>
 
 </div>
