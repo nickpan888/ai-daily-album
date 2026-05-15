@@ -402,6 +402,38 @@
     margin: 2rem 0;
   }
 
+  .qr-section {
+    max-width: 1200px;
+    margin: 3rem auto 0;
+    padding: 0 2rem;
+  }
+  .qr-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: #14141f;
+    border: 1px solid #1e1e30;
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    justify-content: center;
+  }
+  .qr-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  .qr-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #e8e8ed;
+  }
+  .qr-desc {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.4);
+    margin-top: 0.2rem;
+  }
+
   @media (max-width: 640px) {
     .cover { height: auto; min-height: 92dvh; padding: 3rem 1.5rem; }
     .cover h1 { font-size: clamp(2rem, 8vw, 3rem); }
@@ -729,6 +761,16 @@
     <span class="tagline">数据截至 2026.05.15 14:00 UTC</span>
     <span class="tagline">来源：TechCrunch + Brief.ai</span>
     <span class="tagline">超级科技侠 · 首席内容官</span>
+  </div>
+</div>
+
+<div class="qr-section">
+  <div class="qr-card">
+    <img src="qrcode.jpg" alt="超能科技侠" class="qr-img">
+    <div>
+      <div class="qr-title">扫码联系超能科技侠</div>
+      <div class="qr-desc">深度交流 · 合作 · 反馈</div>
+    </div>
   </div>
 </div>
 
