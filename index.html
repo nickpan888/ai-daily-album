@@ -410,28 +410,28 @@
   .qr-card {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2rem;
     background: #14141f;
     border: 1px solid #1e1e30;
     border-radius: 16px;
-    padding: 1.5rem 2rem;
+    padding: 2rem 2.5rem;
     justify-content: center;
   }
   .qr-img {
-    width: 80px;
-    height: 80px;
+    width: 200px;
+    height: auto;
     border-radius: 8px;
-    object-fit: cover;
+    object-fit: contain;
   }
   .qr-title {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: #e8e8ed;
   }
   .qr-desc {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: rgba(255,255,255,0.4);
-    margin-top: 0.2rem;
+    margin-top: 0.3rem;
   }
 
   @media (max-width: 640px) {
@@ -470,6 +470,9 @@
     .section-title { margin: 2rem 0 1rem; }
     .section-title h2 { font-size: 1rem; }
     .footer { font-size: 0.72rem; padding: 1.5rem 0; }
+    .qr-section { padding: 0 1rem; }
+    .qr-card { flex-direction: column; text-align: center; padding: 1.5rem; gap: 1rem; }
+    .qr-img { width: 160px; }
   }
 </style>
 </head>
