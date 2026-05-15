@@ -11,13 +11,12 @@
 
 ## 访问地址
 
-| 页面 | 链接 |
+| 分类 | 链接 |
 |------|------|
 | **最新一期** | https://nickpan888.github.io/ai-daily-album/ |
-| **历史存档** | https://nickpan888.github.io/ai-daily-album/archive |
-| **第 01 期** | https://nickpan888.github.io/ai-daily-album/20260514 |
+| **历史存期** | https://nickpan888.github.io/ai-daily-album/archive |
 
-每期独立永久链接：`/YYYYMMDD`
+每期独立永久链接：`/YYYYMMDD`（如 `/20260515`）
 
 ## 内容结构
 

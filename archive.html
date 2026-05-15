@@ -21,7 +21,17 @@
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     margin-bottom: 0.5rem;
   }
-  .sub { color: rgba(255,255,255,0.4); margin-bottom: 3rem; font-weight: 300; }
+  .sub { color: rgba(255,255,255,0.4); margin-bottom: 2rem; font-weight: 300; }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #1e1e30;
+  }
   .edition {
     display: flex; align-items: center; gap: 1.5rem;
     padding: 1.2rem 1.5rem;
@@ -67,6 +77,7 @@
     .container { padding: 2rem 1rem; }
     h1 { font-size: 1.8rem; }
     .sub { margin-bottom: 2rem; }
+    .section-label { font-size: 0.65rem; margin: 1.5rem 0 0.8rem; }
     .edition { padding: 1rem; gap: 0.8rem; border-radius: 12px; }
     .edition .num { font-size: 1rem; min-width: 2.2rem; }
     .edition .date { font-size: 0.88rem; }
@@ -80,11 +91,22 @@
   <h1>AI 热点画册</h1>
   <p class="sub">超级科技侠 · 每日 AI 深度脱水</p>
 
+  <div class="section-label">📌 最新一期</div>
+
+  <a class="edition" href="index.html">
+    <span class="num">#02</span>
+    <span class="date">2026.05.15</span>
+    <span class="summary">Anthropic 法律AI · 孙正义收割</span>
+    <span class="badge badge-new">最新</span>
+  </a>
+
+  <div class="section-label">📂 历史存期</div>
+
   <a class="edition" href="20260514.html">
     <span class="num">#01</span>
     <span class="date">2026.05.14</span>
     <span class="summary">Anthropic 反超 OpenAI · 信任新轴心</span>
-    <span class="badge badge-new">最新</span>
+    <span class="badge badge-old">历史</span>
   </a>
 
   <a class="back" href="index.html">← 返回最新一期</a>
