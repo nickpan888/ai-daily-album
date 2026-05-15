@@ -402,36 +402,94 @@
     margin: 2rem 0;
   }
 
-  .qr-section {
+  .site-footer {
     max-width: 1200px;
     margin: 3rem auto 0;
     padding: 0 2rem;
   }
-  .qr-card {
+  .site-footer-inner {
     display: flex;
     align-items: center;
-    gap: 2rem;
-    background: #14141f;
+    gap: 2.5rem;
+    background: linear-gradient(145deg, #14141f, #0f0f1a);
     border: 1px solid #1e1e30;
-    border-radius: 16px;
+    border-radius: 20px;
     padding: 2rem 2.5rem;
-    justify-content: center;
   }
-  .qr-img {
-    width: 200px;
+  .footer-qr {
+    flex-shrink: 0;
+  }
+  .footer-qr img {
+    width: 140px;
     height: auto;
-    border-radius: 8px;
-    object-fit: contain;
+    border-radius: 10px;
+    display: block;
+    border: 2px solid #1e1e30;
   }
-  .qr-title {
-    font-size: 1.1rem;
+  .footer-info {
+    flex: 1;
+    min-width: 0;
+  }
+  .footer-brand {
+    font-size: 1.05rem;
     font-weight: 700;
     color: #e8e8ed;
+    letter-spacing: 0.05em;
   }
-  .qr-desc {
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.4);
+  .footer-brand .highlight {
+    background: linear-gradient(135deg, #00d4ff, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .footer-meta {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.35);
+    margin-top: 0.4rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .footer-divider {
+    height: 1px;
+    background: linear-gradient(90deg, #1e1e30, transparent);
+    margin: 0.8rem 0;
+  }
+  .footer-links {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
     margin-top: 0.3rem;
+    flex-wrap: wrap;
+  }
+  .footer-links a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: #7c3aed; }
+  .footer-links .sep {
+    color: rgba(255,255,255,0.12);
+    font-size: 0.7rem;
+  }
+  .footer-contact {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.6rem;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.3);
+  }
+  .footer-contact strong {
+    color: rgba(255,255,255,0.6);
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .site-footer-inner { flex-direction: column; text-align: center; padding: 2rem 1.5rem; gap: 1.5rem; }
+    .footer-qr img { width: 120px; }
+    .footer-links { justify-content: center; }
+    .footer-contact { justify-content: center; }
+    .footer-divider { background: linear-gradient(90deg, transparent, #1e1e30, transparent); }
   }
 
   @media (max-width: 640px) {
@@ -469,10 +527,7 @@
     .data-cell .sub { font-size: 0.58rem; }
     .section-title { margin: 2rem 0 1rem; }
     .section-title h2 { font-size: 1rem; }
-    .footer { font-size: 0.72rem; padding: 1.5rem 0; }
-    .qr-section { padding: 0 1rem; }
-    .qr-card { flex-direction: column; text-align: center; padding: 1.5rem; gap: 1rem; }
-    .qr-img { width: 160px; }
+    .site-footer { padding: 0 1rem; }
   }
 </style>
 </head>
@@ -767,23 +822,29 @@
   </div>
 </div>
 
-<div class="qr-section">
-  <div class="qr-card">
-    <img src="qrcode.png" alt="超能科技侠" class="qr-img">
-    <div>
-      <div class="qr-title">扫码联系超能科技侠</div>
-      <div class="qr-desc">深度交流 · 合作 · 反馈</div>
+<div class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-qr">
+      <img src="qrcode.png" alt="超能科技侠">
+    </div>
+    <div class="footer-info">
+      <div class="footer-brand">
+        <span class="highlight">◆ AI 热点画册</span> · 超级科技侠 · 第 02 期
+      </div>
+      <div class="footer-meta">2026.05.15</div>
+      <div class="footer-divider"></div>
+      <div class="footer-links">
+        <a href="https://techcrunch.com/" target="_blank">TechCrunch</a>
+        <span class="sep">/</span>
+        <a href="https://www.brief.news/ai" target="_blank">Brief.ai</a>
+        <span class="sep">/</span>
+        <a href="archive.html">📂 查看所有期次</a>
+      </div>
+      <div class="footer-contact">
+        <span>扫码联系 <strong>超能科技侠</strong>  ·  深度交流 · 合作 · 反馈</span>
+      </div>
     </div>
   </div>
-</div>
-
-<div class="footer">
-  AI 热点画册 · 超级科技侠 · 第 02 期<br>
-  数据源：
-  <a href="https://techcrunch.com/" target="_blank">TechCrunch</a> ·
-  <a href="https://www.brief.news/ai" target="_blank">Brief.ai</a><br>
-  2026.05.15 ·
-  <a href="archive.html">查看所有期次 →</a>
 </div>
 
 </div>
