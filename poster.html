@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 热点贴图 · 2026.05.16</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans SC', -apple-system, sans-serif;
+    background: #f5f5f0;
+    color: #1a1a1a;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .poster {
+    max-width: 750px;
+    margin: 0 auto;
+    background: #ffffff;
+    box-shadow: 0 0 40px rgba(0,0,0,0.08);
+  }
+
+  /* ===== 封面 ===== */
+  .poster-cover {
+    background: linear-gradient(145deg, #0a2a1a, #1a4a2e);
+    padding: 4rem 2.5rem 3rem;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .poster-cover::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -20%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(26,138,76,0.3) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .poster-cover::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: -10%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(0,180,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .cover-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: rgba(255,255,255,0.5);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 0.3rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  .cover-date {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.4);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  .cover-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 1.3;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 1rem;
+  }
+  .cover-title .hl {
+    background: linear-gradient(135deg, #4ade80, #22d3ee);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .cover-sub {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    line-height: 1.6;
+  }
+  .cover-author {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.35);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ===== 正文 ===== */
+  .poster-body {
+    padding: 2.5rem 2rem;
+  }
+
+  /* 结论前置框 */
+  .insight-box {
+    background: #f0f7f3;
+    border-left: 4px solid #1a8a4c;
+    padding: 1.5rem 1.8rem;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 2.5rem;
+  }
+  .insight-box .label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #1a8a4c;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+  }
+  .insight-box p {
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.8;
+  }
+  .insight-box strong {
+    color: #1a8a4c;
+  }
+
+  /* 章节标题 */
+  .section {
+    margin-bottom: 2.5rem;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid #e8f0ea;
+  }
+  .section-num {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #fff;
+    background: #1a8a4c;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.4;
+  }
+
+  .section p {
+    font-size: 0.92rem;
+    color: #333;
+    margin-bottom: 0.8rem;
+    line-height: 1.9;
+    text-align: justify;
+  }
+  .section p:last-child {
+    margin-bottom: 0;
+  }
+
+  .section strong {
+    color: #1a8a4c;
+  }
+
+  /* 金句代码块 */
+  .golden-quote {
+    background: #f5f5f0;
+    border-left: 3px solid #ccc;
+    padding: 1.2rem 1.5rem;
+    margin: 1.2rem 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.8;
+    font-style: normal;
+  }
+
+  /* 数据高亮 */
+  .data-highlight {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin: 1.2rem 0;
+    background: #f8fbf9;
+    border-radius: 12px;
+  }
+  .data-highlight .num {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #1a8a4c;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .data-highlight .desc {
+    font-size: 0.85rem;
+    color: #666;
+  }
+
+  /* 分隔线 */
+  .divider {
+    text-align: center;
+    margin: 2.5rem 0;
+    color: #ddd;
+    font-size: 1rem;
+    letter-spacing: 0.5em;
+  }
+
+  /* 结尾 */
+  .ending {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid #eee;
+  }
+  .ending p {
+    font-size: 0.9rem;
+    color: #888;
+    line-height: 1.8;
+  }
+  .ending .brand {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a8a4c;
+    margin-top: 1rem;
+  }
+  .ending .qr img {
+    width: 140px;
+    height: auto;
+    margin-top: 0.8rem;
+    border-radius: 8px;
+  }
+
+  /* 底部 */
+  .footer-bar {
+    text-align: center;
+    padding: 1.5rem 2rem;
+    background: #fafaf5;
+    border-top: 1px solid #eee;
+    color: #aaa;
+    font-size: 0.75rem;
+    line-height: 1.8;
+  }
+
+  /* 响应式 */
+  @media (max-width: 750px) {
+    .poster-cover { padding: 3rem 1.8rem 2.5rem; }
+    .cover-title { font-size: 1.7rem; }
+    .poster-body { padding: 2rem 1.2rem; }
+    .section-title { font-size: 1.05rem; }
+    .section p { font-size: 0.88rem; }
+    .data-highlight .num { font-size: 1.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="poster">
+
+  <!-- ===== 封面 ===== -->
+  <div class="poster-cover">
+    <div class="cover-badge">◆ AI 热点贴图</div>
+    <div class="cover-date">2026.05.16 · 第 03 期</div>
+    <div class="cover-title">
+      ChatGPT <span class="hl">开始管你的钱</span><br>和一个时代的交接
+    </div>
+    <div class="cover-sub">
+      今天AI同时向七个行业发起冲锋——金融、开发工具、搜索、学术、资本、机器人、医疗
+    </div>
+    <div class="cover-author">超能科技侠 · 每日AI深度解读</div>
+  </div>
+
+  <!-- ===== 正文 ===== -->
+  <div class="poster-body">
+
+    <!-- 结论前置 -->
+    <div class="insight-box">
+      <div class="label">▎核心洞察</div>
+      <p><strong>今天的 AI 新闻有一条清晰的主线：</strong>AI 正在从"对话工具"变成"生活基础设施"。ChatGPT 开始管你的钱、微软用 Copilot 锁定开发者生态、谷歌重新定义搜索规则——边界在以天为单位向外扩展。<strong>信任，是 2026 年 AI 行业最大的瓶颈，也是最大的机会。</strong></p>
+    </div>
+
+    <!-- 01 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <span class="section-title">AI 开始管你的钱了</span>
+      </div>
+      <p>今天 OpenAI 干了一件事，听起来不大，但仔细想想，可能是今年最重要的一次产品更新。</p>
+      <p><strong>ChatGPT 现在能连接你的银行账户了。</strong>通过 Plaid 接入，用户可以绑定银行账户进行预算管理和消费分析——每一笔收入和支出，AI 都能看到。</p>
+      <p>这跟查余额那种肤浅功能完全不是一个物种。这是 OpenAI 在跨越一条红线——从"信息层"进入"交易层"。处理信息，错了最多丢人。处理资金，错了丢的是真金白银。</p>
+      <div class="data-highlight">
+        <span class="num">从对话 → 交易</span>
+        <span class="desc">AI 能力边界的历史性跨越</span>
+      </div>
+      <p>而且有意思的是，OpenAI 没自建银行接口，而是用了 Plaid——就是那个连接银行和各类金融应用的中间层。这说明策略很清楚：<strong>先占位，再优化</strong>。快速上线、快速获取用户、快速积累金融数据。</p>
+      <p>问题是：你准备好把银行密码告诉 AI 了吗？OpenAI 要攻克的不是技术难题，是信任难题。而信任，恰恰是金融行业的根基。</p>
+    </div>
+
+    <div class="divider">· · ·</div>
+
+    <!-- 02 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <span class="section-title">微软收网：Claude Code 出局</span>
+      </div>
+      <p>第二件大事，发生在开发者工具领域。</p>
+      <p><strong>微软正在逐步淘汰 Claude Code，引导内部开发者全面转向 GitHub Copilot CLI。</strong>这不是一个普通的"换供应商"决定，背后是微软在 PC 时代最擅长的策略——捆绑。</p>
+      <div class="golden-quote">
+        "历史不会重复，但总在押韵。微软的 AI 时代捆绑策略，和它的 PC 时代用的是同一本剧本。"
+      </div>
+      <p>当年 IE 捆绑 Windows 打垮了 Netscape，Teams 捆绑 Office 365 击退了 Slack。现在，GitHub Copilot 捆绑 Azure + GitHub 生态，目标是谁？不言自明。</p>
+      <p>对开发者来说，好消息是 Copilot 和 GitHub 的整合确实体验更好；坏消息是——<strong>你又一次被锁在了一个生态里</strong>。</p>
+    </div>
+
+    <div class="divider">· · ·</div>
+
+    <!-- 03 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <span class="section-title">OpenAI 的"成人礼"</span>
+      </div>
+      <p>第三件事，发生在 OpenAI 内部。</p>
+      <p>Greg Brockman 重新出山担任产品战略负责人。<strong>ChatGPT 和 Codex 合并</strong>。公司为 IPO 做最后冲刺。三个信号指向同一个结论：OpenAI 正在从"研究实验室"变成一家"正常"的科技公司。</p>
+      <p>把对话和编程合并的逻辑很有意思。OpenAI 认为，未来用户不需要区分"聊天"和"编程"——AI 会自动理解需求并切换模式。这就是 AI Agent 的雏形。</p>
+      <p>IPO 更加直白。上市意味着 OpenAI 需要展示可预测的财务表现，会影响它敢冒的风险。<strong>研究实验室随心所欲探索的时代，正式结束了。</strong></p>
+    </div>
+
+    <div class="divider">· · ·</div>
+
+    <!-- 04 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <span class="section-title">AI 同时向七个行业开火</span>
+      </div>
+      <p>如果你以为上面三条就是今天的全部——看看今天同时发生的其他事：</p>
+      <p><strong>🔍 谷歌</strong>更新搜索政策，把"操控 AI 搜索结果"定性为垃圾行为。AI 搜索的 SEO 大战刚刚开始。</p>
+      <p><strong>📚 ArXiv</strong>宣布用 AI 生成不适当的学术内容将被封禁一年。不是你用 AI 不行，而是你得为结果负责。</p>
+      <p><strong>💰 阿克曼</strong>拿出 10 亿美元买入微软股票，说微软的 AI 潜力被严重低估。</p>
+      <p><strong>🤖 英伟达</strong>投资韩国人形机器人公司 WIRobotics，B 轮 950 亿韩元。<strong>富士通×IBM</strong> 为日本打造主权医疗 AI 平台。</p>
+      <div class="data-highlight">
+        <span class="num">7 个行业</span>
+        <span class="desc">金融 · 开发工具 · 搜索 · 学术 · 资本 · 机器人 · 医疗</span>
+      </div>
+      <p>这不是"AI 能做什么"的问题，而是<strong>"AI 不能做什么"的问题</strong>。边界在以天为单位向外扩展。</p>
+    </div>
+
+    <!-- 结尾 -->
+    <div class="ending">
+      <p>技术不是瓶颈。信任才是。</p>
+      <p>2026 年 AI 行业最大的瓶颈，<br>不是模型不够聪明，<br>而是人类还不够信任。</p>
+      <p style="margin-top:1rem;color:#666;">谁能建立信任，谁就能赢得下一个时代。</p>
+      <div class="brand">超能科技侠</div>
+      <p style="margin-top:0.3rem;font-size:0.8rem;color:#aaa;">关注我，带你洞察全球科技趋势</p>
+      <div class="qr">
+        <img src="qrcode.png" alt="超能科技侠">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bar">
+    AI 热点贴图 · 每日 AI 深度解读 · 超能科技侠<br>
+    数据来源：TechCrunch + Brief.ai · 2026.05.16
+  </div>
+
+</div>
+
+</body>
+</html>
