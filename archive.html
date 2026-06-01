@@ -25,249 +25,283 @@
   .edition {
     display: flex; align-items: center; gap: 1.5rem;
     padding: 1.2rem 1.5rem;
-    background: #14141f; border: 1px solid #1e1e30; border-radius: 16px;
-    margin-bottom: 1rem; transition: all 0.2s; text-decoration: none; color: inherit;
+    background: #14141f;
+    border: 1px solid #1e1e30;
+    border-radius: 16px;
+    margin-bottom: 1rem;
+    transition: all 0.2s;
+    text-decoration: none; color: inherit;
   }
-  .edition:hover { border-color: #7c3aed; transform: translateX(4px); }
+  .edition:hover {
+    border-color: #7c3aed;
+    transform: translateX(4px);
+  }
   .edition .num {
-    font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.2rem; font-weight: 700;
     color: #7c3aed; min-width: 3rem;
   }
-  .edition .date { font-size: 1rem; font-weight: 500; flex: 1; }
+  .edition .date {
+    font-size: 1rem; font-weight: 500; flex: 1;
+  }
   .edition .badge {
-    font-size: 0.7rem; padding: 0.2rem 0.8rem; border-radius: 100px;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.8rem;
+    border-radius: 100px;
   }
-  .edition .badge.latest {
-    background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.3);
+  .badge-new { background: rgba(239,68,68,0.2); color: #f87171; }
+  .badge-old { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.3); }
+  .back {
+    display: inline-block; margin-top: 3rem;
+    color: rgba(255,255,255,0.3); text-decoration: none;
+    font-size: 0.9rem;
   }
-  .edition .badge.history {
-    background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.3);
+  .back:hover { color: rgba(255,255,255,0.6); }
+  .summary {
+    font-size: 0.85rem; color: rgba(255,255,255,0.35);
+    margin-left: auto; display: none;
   }
-  .back { display: inline-block; margin-bottom: 2rem; color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.9rem; }
-  .back:hover { color: #818cf8; }
-  @media (max-width: 600px) {
-    .edition { flex-wrap: wrap; gap: 0.5rem; }
-    .edition .num { min-width: 2rem; font-size: 1rem; }
-    .edition .date { width: 100%; order: 3; font-size: 0.9rem; }
+  @media (min-width: 640px) { .summary { display: block; } }
+
+  /* ===== 统一页脚 ===== */
+  .site-footer {
+    margin-top: 3rem;
+    background: linear-gradient(145deg, #14141f, #0f0f1a);
+    border: 1px solid #1e1e30;
+    border-radius: 20px;
+    padding: 2rem 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  .footer-qr img {
+    width: 120px;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    border: 2px solid #1e1e30;
+  }
+  .footer-info { flex: 1; min-width: 0; }
+  .footer-brand {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #e8e8ed;
+  }
+  .footer-brand .hl {
+    background: linear-gradient(135deg, #00d4ff, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .footer-meta {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.3);
+    margin-top: 0.3rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .footer-divider {
+    height: 1px;
+    background: linear-gradient(90deg, #1e1e30, transparent);
+    margin: 0.7rem 0;
+  }
+  .footer-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .footer-links a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: #7c3aed; }
+  .footer-links .sep { color: rgba(255,255,255,0.12); font-size: 0.7rem; }
+  .footer-contact {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.3);
+  }
+  .footer-contact strong { color: rgba(255,255,255,0.6); font-weight: 500; }
+
+  @media (max-width: 640px) {
+    .container { padding: 2rem 1rem; }
+    h1 { font-size: 1.8rem; }
+    .sub { margin-bottom: 2rem; }
+    .edition { padding: 1rem; gap: 0.8rem; border-radius: 12px; }
+    .edition .num { font-size: 1rem; min-width: 2.2rem; }
+    .edition .date { font-size: 0.88rem; }
+    .edition .badge { font-size: 0.6rem; padding: 0.15rem 0.6rem; }
+    .back { font-size: 0.8rem; }
+    .site-footer { flex-direction: column; text-align: center; padding: 1.5rem; gap: 1.5rem; }
+    .footer-qr img { width: 100px; }
+    .footer-links { justify-content: center; }
+    .footer-contact { justify-content: center; }
+    .footer-divider { background: linear-gradient(90deg, transparent, #1e1e30, transparent); }
   }
 </style>
 </head>
 <body>
 <div class="container">
-  <a href="index.html" class="back">← 返回最新一期</a>
   <h1>AI 热点画册</h1>
-  <p class="sub">全部期次 · 共 19 期</p>
+  <p class="sub">超级科技侠 · 每日 AI 深度解读</p>
 
-  
-  <a href="20260601.html" class="edition">
-    <span class="num">#0</span>
+  <a class="edition" href="index.html">
+    <span class="num">#19</span>
     <span class="date">2026.06.01</span>
-    
-    <span style="flex:1; font-size:0.85rem; color:rgba(255,255,255,0.5); text-align:right;">AI 热点画册</span>
-    
-    <span class="badge latest">
-      最新
-    </span>
+    <span class="summary">Apple重写Siri植入Gemini · Nvidia Physical AI宣言 · AI成本危机大厂踩刹车 · OpenAI机器人团队 · N1X芯片</span>
+    <span class="badge badge-new">最新</span>
   </a>
-  
-  <a href="20260531.html" class="edition">
-    <span class="num">#0</span>
+
+  <a class="edition" href="20260531.html">
+    <span class="num">#18</span>
     <span class="date">2026.05.31</span>
-    
-    <span style="flex:1; font-size:0.85rem; color:rgba(255,255,255,0.5); text-align:right;">AI 热点画册</span>
-    
-    <span class="badge history">
-      历史
-    </span>
+    <span class="summary">Codex控制Windows · 微软AI超级应用 · 人形机器人首次实战 · 伊利诺伊最严AI安全法 · Meta可穿戴1000万目标</span>
+    <span class="badge badge-old">历史</span>
   </a>
-  
-  <a href="20260530.html" class="edition">
-    <span class="num">#0</span>
+
+  <a class="edition" href="20260530.html">
+    <span class="num">#17</span>
     <span class="date">2026.05.30</span>
-    
-    <span style="flex:1; font-size:0.85rem; color:rgba(255,255,255,0.5); text-align:right;">AI 热点画册</span>
-    
-    <span class="badge history">
-      历史
-    </span>
+    <span class="summary">AI自主攻击 · OpenAI全球宕机 · Nvidia$65亿光子学 · 企业AI成本失控 · 科罗拉多AI保护法 · Codex印度27倍增长</span>
+    <span class="badge badge-old">历史</span>
   </a>
-  
-  <a href="20260529.html" class="edition">
-    <span class="num">#0</span>
+
+  <a class="edition" href="20260529.html">
+    <span class="num">#16</span>
     <span class="date">2026.05.29</span>
-    
-    <span style="flex:1; font-size:0.85rem; color:rgba(255,255,255,0.5); text-align:right;">AI 热点画册</span>
-    
-    <span class="badge history">
-      历史
-    </span>
+    <span class="summary">Anthropic$650亿逼近万亿估值 · Apple Siri重写正面对标ChatGPT · CNN起诉Perplexity版权里程碑 · Visa投Replit让AI Agent管钱</span>
+    <span class="badge badge-old">历史</span>
   </a>
-  
-  <a href="20260528.html" class="edition">
-    <span class="num">#0</span>
+
+  <a class="edition" href="20260528.html">
+    <span class="num">#15</span>
     <span class="date">2026.05.28</span>
-    
-    <span style="flex:1; font-size:0.85rem; color:rgba(255,255,255,0.5); text-align:right;">AI 热点画册</span>
-    
-    <span class="badge history">
-      历史
-    </span>
+    <span class="summary">Cognition估值$260亿 · ElevenLabs音乐模型可切曲风 · Snowflake$60亿锁定AWS · 富士通×Anthropic日本 · 斯坦福AI招聘偏见</span>
+    <span class="badge badge-old">历史</span>
   </a>
-  
-  <a href="20260527.html" class="edition">
-    <span class="num">#0</span>
+
+  <a class="edition" href="20260527.html">
+    <span class="num">#14</span>
     <span class="date">2026.05.27</span>
-    
-    <span style="flex:1; font-size:0.85rem; color:rgba(255,255,255,0.5); text-align:right;">AI 热点画册</span>
-    
-    <span class="badge history">
-      历史
-    </span>
+    <span class="summary">中国AI人才封锁令 · HoYoverse$146亿AI游戏 · OpenRouter$13亿 · 支付宝AI钱包 · 物理AI落地</span>
+    <span class="badge badge-old">历史</span>
   </a>
-  
-  <a href="20260526.html" class="edition">
-    <span class="num">#0</span>
+
+  <a class="edition" href="20260526.html">
+    <span class="num">#13</span>
     <span class="date">2026.05.26</span>
-    
-    <span style="flex:1; font-size:0.85rem; color:rgba(255,255,255,0.5); text-align:right;">AI 热点画册</span>
-    
-    <span class="badge history">
-      历史
-    </span>
+    <span class="summary">AI重写底层规则 · ClickUp裁22%换3000Agent · 教皇通谕 · Google发两篇Nature</span>
+    <span class="badge badge-old">历史</span>
   </a>
-  
-  <a href="20260525.html" class="edition">
-    <span class="num">#0</span>
+
+  <a class="edition" href="20260525.html">
+    <span class="num">#12</span>
     <span class="date">2026.05.25</span>
-    
-    <span style="flex:1; font-size:0.85rem; color:rgba(255,255,255,0.5); text-align:right;">AI 热点画册</span>
-    
-    <span class="badge history">
-      历史
-    </span>
+    <span class="summary">AlphaProof解56年数学难题 · AudioHijack无声劫持AI · NTSB频谱门</span>
+    <span class="badge badge-old">历史</span>
   </a>
-  
-  <a href="20260524.html" class="edition">
-    <span class="num">#0</span>
+
+  <a class="edition" href="20260524.html">
+    <span class="num">#11</span>
     <span class="date">2026.05.24</span>
-    
-    <span style="flex:1; font-size:0.85rem; color:rgba(255,255,255,0.5); text-align:right;">AI 热点画册</span>
-    
-    <span class="badge history">
-      历史
-    </span>
+    <span class="summary">AI主动时代 · Mythos攻破Vim/Emacs · Anthropic $2000亿云单 · 联盟重组</span>
+    <span class="badge badge-old">历史</span>
   </a>
-  
-  <a href="20260523.html" class="edition">
-    <span class="num">#0</span>
+
+  <a class="edition" href="20260523.html">
+    <span class="num">#10</span>
     <span class="date">2026.05.23</span>
-    
-    <span style="flex:1; font-size:0.85rem; color:rgba(255,255,255,0.5); text-align:right;">AI 热点画册</span>
-    
-    <span class="badge history">
-      历史
-    </span>
+    <span class="summary">AI资本大洗牌 · Anthropic付xAI $1.25B/月 · Nvidia $43B股权</span>
+    <span class="badge badge-old">历史</span>
   </a>
-  
-  <a href="20260522.html" class="edition">
-    <span class="num">#0</span>
+
+  <a class="edition" href="20260522.html">
+    <span class="num">#09</span>
     <span class="date">2026.05.22</span>
-    
-    <span style="flex:1; font-size:0.85rem; color:rgba(255,255,255,0.5); text-align:right;">AI 热点画册</span>
-    
-    <span class="badge history">
-      历史
-    </span>
+    <span class="summary">Spotify×环球AI翻唱 · Hark$700M · Trump推迟AI安全令</span>
+    <span class="badge badge-old">历史</span>
   </a>
-  
-  <a href="20260521.html" class="edition">
-    <span class="num">#0</span>
+
+  <a class="edition" href="20260521.html">
+    <span class="num">#08</span>
     <span class="date">2026.05.21</span>
-    
-    <span style="flex:1; font-size:0.85rem; color:rgba(255,255,255,0.5); text-align:right;">AI 热点画册</span>
-    
-    <span class="badge history">
-      历史
-    </span>
+    <span class="summary">NVIDIA 2000亿新市场 · Anthropic盈利 · OpenAI解80年难题</span>
+    <span class="badge badge-old">历史</span>
   </a>
-  
-  <a href="20260520.html" class="edition">
-    <span class="num">#0</span>
+
+  <a class="edition" href="20260520.html">
+    <span class="num">#07</span>
     <span class="date">2026.05.20</span>
-    
-    <span style="flex:1; font-size:0.85rem; color:rgba(255,255,255,0.5); text-align:right;">AI 热点画册</span>
-    
-    <span class="badge history">
-      历史
-    </span>
+    <span class="summary">Google I/O重磅 · 搜索已死 · Karpathy加入Anthropic</span>
+    <span class="badge badge-old">历史</span>
   </a>
-  
-  <a href="20260519.html" class="edition">
-    <span class="num">#0</span>
+
+  <a class="edition" href="20260519.html">
+    <span class="num">#06</span>
     <span class="date">2026.05.19</span>
-    
-    <span style="flex:1; font-size:0.85rem; color:rgba(255,255,255,0.5); text-align:right;">AI 热点画册</span>
-    
-    <span class="badge history">
-      历史
-    </span>
+    <span class="summary">马斯克败诉 · OpenAI三线出击 · Anthropic收购</span>
+    <span class="badge badge-old">历史</span>
   </a>
-  
-  <a href="20260518.html" class="edition">
-    <span class="num">#0</span>
+
+  <a class="edition" href="20260518.html">
+    <span class="num">#05</span>
     <span class="date">2026.05.18</span>
-    
-    <span style="flex:1; font-size:0.85rem; color:rgba(255,255,255,0.5); text-align:right;">AI 热点画册</span>
-    
-    <span class="badge history">
-      历史
-    </span>
+    <span class="summary">AI裁员5万 · 43%企业砍初级岗</span>
+    <span class="badge badge-old">历史</span>
   </a>
-  
-  <a href="20260517.html" class="edition">
-    <span class="num">#0</span>
+
+  <a class="edition" href="20260517.html">
+    <span class="num">#04</span>
     <span class="date">2026.05.17</span>
-    
-    <span style="flex:1; font-size:0.85rem; color:rgba(255,255,255,0.5); text-align:right;">AI 热点画册</span>
-    
-    <span class="badge history">
-      历史
-    </span>
+    <span class="summary">AI Agent 开始花钱 · OpenAI×马耳他</span>
+    <span class="badge badge-old">历史</span>
   </a>
-  
-  <a href="20260516.html" class="edition">
-    <span class="num">#0</span>
+
+  <a class="edition" href="20260516.html">
+    <span class="num">#03</span>
     <span class="date">2026.05.16</span>
-    
-    <span style="flex:1; font-size:0.85rem; color:rgba(255,255,255,0.5); text-align:right;">AI 热点画册</span>
-    
-    <span class="badge history">
-      历史
-    </span>
+    <span class="summary">ChatGPT 管钱 · 微软弃用 Claude Code</span>
+    <span class="badge badge-old">历史</span>
   </a>
-  
-  <a href="20260515.html" class="edition">
-    <span class="num">#0</span>
+
+  <a class="edition" href="20260515.html">
+    <span class="num">#02</span>
     <span class="date">2026.05.15</span>
-    
-    <span style="flex:1; font-size:0.85rem; color:rgba(255,255,255,0.5); text-align:right;">AI 热点画册</span>
-    
-    <span class="badge history">
-      历史
-    </span>
+    <span class="summary">Cerebras IPO 狂飙 · OpenAI 起诉苹果</span>
+    <span class="badge badge-old">历史</span>
   </a>
-  
-  <a href="20260514.html" class="edition">
-    <span class="num">#0</span>
+
+  <a class="edition" href="20260514.html">
+    <span class="num">#01</span>
     <span class="date">2026.05.14</span>
-    
-    <span style="flex:1; font-size:0.85rem; color:rgba(255,255,255,0.5); text-align:right;">AI 热点画册</span>
-    
-    <span class="badge history">
-      历史
-    </span>
+    <span class="summary">Anthropic 反超 OpenAI · 信任新轴心</span>
+    <span class="badge badge-old">历史</span>
   </a>
-  
+
+  <a class="back" href="index.html">← 返回最新一期</a>
+
+  <div class="site-footer">
+    <div class="footer-qr">
+      <img src="qrcode.png" alt="超能科技侠">
+    </div>
+    <div class="footer-info">
+      <div class="footer-brand"><span class="hl">◆ AI 热点画册</span> · 超级科技侠</div>
+      <div class="footer-meta">每日 AI 深度解读</div>
+      <div class="footer-divider"></div>
+      <div class="footer-links">
+        <a href="index.html">最新一期</a>
+        <span class="sep">/</span>
+        <a href="https://techcrunch.com/" target="_blank">TechCrunch</a>
+        <span class="sep">/</span>
+        <a href="https://www.brief.news/ai" target="_blank">Brief.ai</a>
+      </div>
+      <div class="footer-contact">
+        扫码联系 <strong>超能科技侠</strong>  ·  深度交流 · 合作 · 反馈
+      </div>
+    </div>
+  </div>
 </div>
 </body>
 </html>

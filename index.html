@@ -6,7 +6,9 @@
 <title>AI 热点画册 · 2026.06.01</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
+
   body {
     font-family: 'Noto Sans SC', -apple-system, sans-serif;
     background: #0a0a0f;
@@ -15,14 +17,25 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ===== Cover ===== */
   .cover {
-    height: 100vh; display: flex; flex-direction: column; justify-content: center;
-    align-items: center; background: linear-gradient(135deg, #0a0a0f 0%, #0a0a1a 30%, #0a1a2e 70%, #0a0a0f 100%);
-    position: relative; overflow: hidden; text-align: center; padding: 2rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0a0a0f 0%, #0a0a1a 30%, #0a1a2e 70%, #0a0a0f 100%);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 2rem;
   }
   .cover::before {
-    content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
     background: radial-gradient(circle at 30% 40%, rgba(59,130,246,0.10) 0%, transparent 50%),
                 radial-gradient(circle at 70% 60%, rgba(16,185,129,0.06) 0%, transparent 50%),
                 radial-gradient(circle at 50% 50%, rgba(236,72,153,0.04) 0%, transparent 40%);
@@ -33,368 +46,635 @@
     100% { transform: scale(1.1); opacity: 1; }
   }
   .cover-badge {
-    font-size: 0.8rem; letter-spacing: 0.4em; color: rgba(255,255,255,0.4);
-    margin-bottom: 2rem; position: relative; z-index: 1;
+    font-size: 0.8rem;
+    letter-spacing: 0.4em;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
   }
   .cover h1 {
-    font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 900;
     background: linear-gradient(135deg, #3b82f6, #10b981, #7c3aed);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    position: relative; z-index: 1; line-height: 1.2;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 1;
+    line-height: 1.2;
   }
   .cover-sub {
-    font-size: 1.2rem; color: rgba(255,255,255,0.5); margin-top: 1.5rem;
-    font-weight: 300; letter-spacing: 0.15em; position: relative; z-index: 1; max-width: 800px;
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.5);
+    margin-top: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
   }
   .cover-date {
-    font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;
-    color: rgba(255,255,255,0.25); margin-top: 3rem; position: relative; z-index: 1;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.25);
+    margin-top: 3rem;
+    position: relative;
+    z-index: 1;
   }
   .cover-source {
-    font-size: 0.75rem; color: rgba(255,255,255,0.2); margin-top: 0.5rem; position: relative; z-index: 1;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.2);
+    margin-top: 0.5rem;
+    position: relative;
+    z-index: 1;
   }
 
   .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
 
-  /* ===== Hero Grid ===== */
   .hero-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
   }
-  .hero-main {
-    background: linear-gradient(135deg, #14142a, #1a1a35);
-    border: 1px solid #2a2a5a; border-radius: 24px; padding: 2.5rem; grid-column: 1 / -1;
+  @media (max-width: 768px) { .hero-grid { grid-template-columns: 1fr; } }
+
+  .hero-card {
+    background: linear-gradient(145deg, #14141f, #1a1a2e);
+    border-radius: 24px;
+    padding: 2.5rem;
+    border: 1px solid #1e1e30;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
   }
-  .hero-tag {
-    display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
-    color: #a78bfa; border: 1px solid #a78bfa; padding: 0.2rem 1rem; border-radius: 100px; margin-bottom: 1rem;
+  .hero-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+  .hero-card.featured {
+    grid-column: 1 / -1;
+    background: linear-gradient(145deg, #0a0a1a, #0a1a2e);
+    border-color: #1a2e3a;
   }
-  .hero-title {
-    font-size: 1.8rem; font-weight: 700; line-height: 1.4; margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, #c4b5fd, #818cf8);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  .hero-card.featured::after {
+    content: 'BREAKING';
+    position: absolute;
+    top: 1.5rem; right: -2rem;
+    background: linear-gradient(90deg, #3b82f6, #10b981);
+    color: #fff;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
+    padding: 0.25rem 3rem;
+    transform: rotate(45deg);
   }
-  .hero-subtitle { color: rgba(255,255,255,0.5); font-size: 0.95rem; margin-bottom: 1.5rem; }
+  .card-label {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+    margin-bottom: 1rem; display: inline-block;
+    padding: 0.25rem 0.8rem; border-radius: 100px;
+  }
+  .label-red { background: rgba(239,68,68,0.2); color: #f87171; }
+  .label-blue { background: rgba(59,130,246,0.2); color: #60a5fa; }
+  .label-purple { background: rgba(139,92,246,0.2); color: #a78bfa; }
+  .label-green { background: rgba(16,185,129,0.2); color: #34d399; }
+  .label-amber { background: rgba(245,158,11,0.2); color: #fbbf24; }
+  .label-cyan { background: rgba(6,182,212,0.2); color: #22d3ee; }
+  .label-pink { background: rgba(236,72,153,0.2); color: #f472b6; }
+  .label-orange { background: rgba(249,115,22,0.2); color: #fb923c; }
+  .label-emerald { background: rgba(52,211,153,0.2); color: #34d399; }
+
+  .hero-card h2 { font-size: 1.6rem; font-weight: 700; line-height: 1.35; margin-bottom: 1rem; }
+  .hero-card.featured h2 { font-size: 2rem; }
+  .hero-card .meta {
+    font-size: 0.8rem; color: rgba(255,255,255,0.35);
+    font-family: 'JetBrains Mono', monospace; margin-bottom: 1rem;
+  }
+  .hero-card .summary {
+    font-size: 0.95rem; color: rgba(255,255,255,0.65);
+    margin-bottom: 1.5rem; line-height: 1.8;
+  }
+  .hero-card .source-tag {
+    display: inline-block; font-size: 0.65rem; padding: 0.2rem 0.6rem;
+    border-radius: 4px; background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.35); margin-bottom: 1rem;
+  }
+
   .analysis-grid {
-    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem; margin-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem;
   }
-  .analysis-item { background: rgba(255,255,255,0.03); border-radius: 16px; padding: 1.2rem; }
-  .analysis-item .label {
-    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; color: #818cf8; margin-bottom: 0.5rem;
-  }
-  .analysis-item .text { font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.7; }
+  @media (max-width: 768px) { .analysis-grid { grid-template-columns: 1fr; } }
 
-  /* ===== Sub Headlines ===== */
-  .section-title {
-    font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; margin-top: 3rem;
-    background: linear-gradient(135deg, #818cf8, #34d399);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  .analysis-item .tag {
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+    display: block; margin-bottom: 0.4rem;
   }
-  .sub-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 3rem;
+  .tag-logic { color: #60a5fa; }
+  .tag-variable { color: #fbbf24; }
+  .tag-comment { color: #a78bfa; }
+  .analysis-item p {
+    font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.7;
   }
-  .sub-card {
-    background: #14141f; border: 1px solid #1e1e30; border-radius: 20px; padding: 1.5rem;
-    transition: border-color 0.2s;
-  }
-  .sub-card:hover { border-color: #4f46e5; }
-  .sub-card .meta { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem; }
-  .sub-card .source-tag {
-    font-size: 0.65rem; color: #6b7280; background: rgba(255,255,255,0.05);
-    padding: 0.15rem 0.6rem; border-radius: 100px;
-  }
-  .sub-card .card-label {
-    font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em;
-    color: #f59e0b; background: rgba(245,158,11,0.1); padding: 0.15rem 0.6rem; border-radius: 100px;
-  }
-  .sub-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
-  .sub-card p { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
 
-  /* ===== Cards Grid ===== */
-  .cards-grid {
-    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.2rem; margin-bottom: 3rem;
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 1.5rem; margin-top: 1.5rem;
   }
+
   .card {
-    background: #14141f; border: 1px solid #1e1e30; border-radius: 16px; padding: 1.2rem;
-    transition: border-color 0.2s;
+    background: #14141f; border-radius: 20px; padding: 2rem;
+    border: 1px solid #1e1e30; transition: transform 0.3s, box-shadow 0.3s;
   }
-  .card:hover { border-color: #7c3aed; }
-  .card .meta { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
-  .card h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.3rem; }
-  .card p { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+  .card h3 { font-size: 1.2rem; font-weight: 700; margin: 0.8rem 0; line-height: 1.4; }
+  .card .summary {
+    font-size: 0.88rem; color: rgba(255,255,255,0.55);
+    line-height: 1.8; margin-bottom: 1rem;
+  }
+  .card .source-tag {
+    display: inline-block; font-size: 0.6rem; padding: 0.15rem 0.5rem;
+    border-radius: 4px; background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.3);
+  }
 
-  /* ===== Data Panel ===== */
+  .card .analysis-mini {
+    margin-top: 1.2rem; padding-top: 1.2rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .card .analysis-mini .line {
+    font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-bottom: 0.4rem;
+  }
+  .card .analysis-mini .line strong { color: rgba(255,255,255,0.8); }
+
   .data-panel {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem; margin: 2rem 0 3rem;
-    background: linear-gradient(135deg, #0f0f1a, #141428);
-    border: 1px solid #1e1e35; border-radius: 24px; padding: 2rem;
+    background: linear-gradient(135deg, #0a0a1a, #0a1a2e);
+    border: 1px solid #1a2e3a;
+    border-radius: 24px; padding: 2.5rem; margin: 3rem 0;
   }
-  .data-item { text-align: center; }
-  .data-item .value {
-    font-family: 'JetBrains Mono', monospace; font-size: 1.8rem; font-weight: 700;
-    background: linear-gradient(135deg, #34d399, #3b82f6);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  .data-panel h2 { font-size: 1.3rem; margin-bottom: 1.5rem; font-weight: 700; }
+  .data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.2rem;
   }
-  .data-item .label { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 0.3rem; }
-  .data-item .desc { font-size: 0.7rem; color: rgba(255,255,255,0.25); margin-top: 0.2rem; }
+  .data-cell {
+    background: rgba(255,255,255,0.03); border-radius: 14px;
+    padding: 1.2rem; text-align: center;
+  }
+  .data-cell .val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.6rem; font-weight: 700;
+    background: linear-gradient(135deg, #3b82f6, #10b981);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .data-cell .lbl { font-size: 0.75rem; color: rgba(255,255,255,0.45); margin-top: 0.4rem; }
+  .data-cell .sub { font-size: 0.6rem; color: rgba(255,255,255,0.2); margin-top: 0.2rem; }
 
-  /* ===== Closing ===== */
-  .closing {
-    text-align: center; padding: 3rem 2rem; margin: 2rem 0 3rem;
-    border-top: 1px solid #1e1e30; border-bottom: 1px solid #1e1e30;
+  .section-title {
+    display: flex; align-items: center; gap: 1rem;
+    margin: 3rem 0 1.5rem;
   }
-  .closing p { font-size: 1.1rem; color: rgba(255,255,255,0.6); font-style: italic; max-width: 700px; margin: 0 auto; line-height: 1.8; }
+  .section-title .line { flex: 1; height: 1px; background: linear-gradient(90deg, #1e1e30, transparent); }
+  .section-title h2 { font-size: 1.3rem; font-weight: 700; white-space: nowrap; }
 
-  /* ===== Footer ===== */
-  .footer {
-    text-align: center; padding: 3rem 2rem; border-top: 1px solid #1a1a2e;
+  .tagline {
+    display: inline-block; font-size: 0.7rem;
+    padding: 0.2rem 0.6rem; border-radius: 6px;
+    background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.4);
+    margin-right: 0.4rem; margin-bottom: 0.4rem;
   }
-  .footer .brand {
-    font-size: 1.2rem; font-weight: 700;
-    background: linear-gradient(135deg, #818cf8, #34d399);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
-  .footer .links { margin-top: 1rem; font-size: 0.8rem; color: rgba(255,255,255,0.3); }
-  .footer .links a { color: rgba(255,255,255,0.4); text-decoration: none; margin: 0 0.5rem; }
-  .footer .links a:hover { color: #818cf8; }
-  .footer .qr { margin-top: 1.5rem; }
-  .footer .qr img { width: 120px; height: 120px; border-radius: 12px; }
-  .footer .qr-label { font-size: 0.7rem; color: rgba(255,255,255,0.25); margin-top: 0.3rem; }
-  .footer .copyright { font-size: 0.7rem; color: rgba(255,255,255,0.15); margin-top: 1rem; }
 
-  /* ===== Responsive ===== */
+  .site-footer { max-width: 1200px; margin: 3rem auto 0; padding: 0 2rem; }
+  .site-footer-inner {
+    display: flex; align-items: center; gap: 2.5rem;
+    background: linear-gradient(145deg, #14141f, #0f0f1a);
+    border: 1px solid #1e1e30; border-radius: 20px; padding: 2rem 2.5rem;
+  }
+  .footer-qr img {
+    width: 140px; height: auto; border-radius: 10px;
+    display: block; border: 2px solid #1e1e30;
+  }
+  .footer-info { flex: 1; min-width: 0; }
+  .footer-brand { font-size: 1.05rem; font-weight: 700; color: #e8e8ed; letter-spacing: 0.05em; }
+  .footer-brand .highlight {
+    background: linear-gradient(135deg, #3b82f6, #10b981);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .footer-meta { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin-top: 0.4rem; font-family: 'JetBrains Mono', monospace; }
+  .footer-divider { height: 1px; background: linear-gradient(90deg, #1e1e30, transparent); margin: 0.8rem 0; }
+  .footer-links { display: flex; align-items: center; gap: 1.2rem; margin-top: 0.3rem; flex-wrap: wrap; }
+  .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+  .footer-links a:hover { color: #7c3aed; }
+  .footer-links .sep { color: rgba(255,255,255,0.12); font-size: 0.7rem; }
+  .footer-contact { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.6rem; font-size: 0.82rem; color: rgba(255,255,255,0.3); }
+  .footer-contact strong { color: rgba(255,255,255,0.6); font-weight: 500; }
+
   @media (max-width: 768px) {
+    .site-footer-inner { flex-direction: column; text-align: center; padding: 2rem 1.5rem; gap: 1.5rem; }
+    .footer-qr img { width: 120px; }
+    .footer-links { justify-content: center; }
+    .footer-contact { justify-content: center; }
+    .footer-divider { background: linear-gradient(90deg, transparent, #1e1e30, transparent); }
+  }
+
+  @media (max-width: 640px) {
+    .cover { height: auto; min-height: 92dvh; padding: 3rem 1.5rem; }
+    .cover h1 { font-size: clamp(2rem, 8vw, 3rem); }
+    .cover-sub { font-size: 1rem; margin-top: 1rem; }
     .container { padding: 1rem; }
-    .hero-grid { grid-template-columns: 1fr; gap: 1rem; }
-    .hero-main { padding: 1.5rem; }
-    .analysis-grid { grid-template-columns: 1fr; gap: 1rem; }
-    .hero-title { font-size: 1.3rem; }
-    .sub-grid { grid-template-columns: 1fr; }
-    .cards-grid { grid-template-columns: 1fr; }
-    .data-panel { grid-template-columns: 1fr 1fr; padding: 1.5rem; }
-    .data-item .value { font-size: 1.4rem; }
+    .hero-grid { gap: 1rem; margin-bottom: 2rem; }
+    .hero-card { padding: 1.25rem; border-radius: 18px; }
+    .hero-card h2 { font-size: 1.25rem; }
+    .hero-card.featured h2 { font-size: 1.45rem; }
+    .hero-card.featured::after { top: 0.8rem; right: -2.2rem; font-size: 0.6rem; padding: 0.2rem 2.5rem; }
+    .hero-card .summary { font-size: 0.92rem; line-height: 1.7; }
+    .card-label { font-size: 0.72rem; }
+    .analysis-grid { gap: 0.8rem; margin-top: 1rem; padding-top: 1rem; }
+    .analysis-item .tag { font-size: 0.7rem; }
+    .analysis-item p { font-size: 0.9rem; }
+    .card { padding: 1.25rem; border-radius: 16px; }
+    .card h3 { font-size: 1.1rem; }
+    .card .summary { font-size: 0.88rem; }
+    .card .analysis-mini .line { font-size: 0.85rem; }
+    .card-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .data-panel { padding: 1.5rem; border-radius: 18px; margin: 2rem 0; }
+    .data-panel h2 { font-size: 1.1rem; }
+    .data-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+    .data-cell { padding: 0.8rem; }
+    .data-cell .val { font-size: 1.2rem; }
+    .data-cell .lbl { font-size: 0.7rem; }
+    .data-cell .sub { font-size: 0.58rem; }
+    .section-title { margin: 2rem 0 1rem; }
+    .section-title h2 { font-size: 1rem; }
+    .site-footer { padding: 0 1rem; }
   }
 </style>
 </head>
 <body>
 
-<!-- ===== Cover ===== -->
+<!-- ============ 封面 ============ -->
 <section class="cover">
-  <div class="cover-badge">超能科技侠 · AI 热点画册</div>
-  <h1>环保斗士布罗克维奇炮轰AI数据中心不透明</h1>
-  <p class="cover-sub">环保行动可能揭开大科技公司AI扩张的环境代价</p>
-  <div class="cover-date">#20 · 2026.06.01</div>
-  <div class="cover-source">数据来源: TechCrunch · VentureBeat · The Verge · Ars Technica · Brief.ai</div>
+  <div class="cover-badge">◆ 超级科技侠 · 独家画册</div>
+  <h1>AI的"终端革命"</h1>
+  <p class="cover-sub">Apple全面重写Siri引入Gemini · Nvidia发布Physical AI宣言 · AI成本危机大厂集体踩刹车 · OpenAI成立机器人团队</p>
+  <p class="cover-date">2026.06.01 ｜ 第 19 期</p>
+  <p class="cover-source">数据源：TechCrunch + Bloomberg + Fortune + 多家媒体</p>
 </section>
 
 <div class="container">
 
-<!-- ===== Hero Analysis ===== -->
-<div class="hero-grid">
-  <div class="hero-main">
-    <div class="hero-tag">🔥 头条深度</div>
-    <h2 class="hero-title">环保斗士布罗克维奇炮轰AI数据中心不透明</h2>
-    <p class="hero-subtitle">环保行动可能揭开大科技公司AI扩张的环境代价</p>
+<!-- ========== 头条：Apple Siri大改版 + Nvidia GTC Taipei ========== -->
+<div class="hero-grid" id="s1">
+  <div class="hero-card featured">
+    <span class="card-label label-blue">● 头条深度</span>
+    <span class="source-tag">Bloomberg · Gurman · Indian Express · Mashable · Nvidia GTC Taipei · Computex · 2026.05.29-06.01</span>
+    <h2>Apple重写Siri、Nvidia发布Physical AI宣言——AI正在从"云端的对话"变成"终端的存在"</h2>
+    <p class="meta">iOS 27 Siri全面AI化植入Gemini · Nvidia Cosmos 3物理AI · Isaac GR00T人形机器人 · Vera CPU专为Agent设计</p>
+    <p class="summary">
+      <strong>2026年6月1日——AI行业被两条主线同时推动，而且它们指向同一个方向。</strong><br><br>
+
+      <strong>第一条主线：Apple正在重写Siri——这是十年以来最大的一次改版。</strong><br><br>
+
+      Bloomberg的Mark Gurman泄露了iOS 27中Siri的完整面貌。这不是小修小补——是<strong>从底层架构到用户界面的全面重构</strong>。Siri将变成一个<strong>独立的聊天应用</strong>，支持文字+语音输入、文件上传、对话历史，界面设计直接对标ChatGPT和Claude。但真正重磅的是<strong>Apple与Google的深度合作</strong>：Apple正在把Google的Gemini模型压缩后塞进iPhone，通过"模型蒸馏"技术在设备端运行部分推理，复杂任务则路由到Google Cloud的Nvidia芯片上处理。<br><br>
+
+      更值得关注的新框架叫<strong>"Extensions"</strong>——用户可以在Siri内部<strong>自由切换ChatGPT、Claude和Gemini</strong>，就像在浏览器里切换搜索引擎一样。Apple的定位很清晰：<strong>不做最强的AI模型，做最好的AI平台</strong>。2.5亿台活跃设备的规模，让Apple可以既引进Gemini又开放接入所有主流模型——成为AI时代的"超级分发渠道"。<br><br>
+
+      WWDC 2026（6月8日）将是这一切的正式揭幕时刻。届时发布的iOS 27、新版Siri和新的"Extensions"框架将奠定Apple未来十年的AI路线。<br><br>
+
+      <strong>第二条主线：Nvidia在GTC Taipei发出Physical AI宣言。</strong><br><br>
+
+      同一天，黄仁勋在台北Computex上发布了<strong>三款重量级产品</strong>。第一，<strong>Cosmos 3</strong>——一个被称为"omnimodel"的物理世界基础模型，可以理解视觉、生成视频和环境音、预测物体的运动轨迹，让机器人和自动驾驶的训练周期大幅缩短。第二，<strong>Isaac GR00T</strong>——首个开源人形机器人参考设计，基于Unitree H2 Plus机体，75个自由度，带触觉五指手，面向全球大学和实验室开放。第三，<strong>Vera CPU</strong>——Nvidia首款完全自研的CPU架构，专为AI Agent工作负载设计，性能是x86的1.8倍。<br><br>
+
+      黄仁勋的演讲中有一句话值得记住：<strong>"物理AI的大爆炸就在眼前。"</strong><br><br>
+
+      <strong>两条主线的交汇：</strong><br><br>
+
+      Apple在重新定义"数字终端"——让AI直接在手机、手表、耳机上运行，不需要每次去云端问一次。<br><br>
+
+      Nvidia在定义"物理终端"——让AI从屏幕走进现实世界，操控机器人、驾驶汽车、理解三维空间。<br><br>
+
+      这两个方向同时加速，说明AI的核心战场正在发生根本性转移。过去三年（2023-2025），AI竞赛的焦点是"谁的模型更强"——更大、更快、更聪明。但2026年6月的这一天，我们看到的是：<strong>AI的竞争正在从"模型能力"转向"终端渗透"</strong>。谁能让AI在更多设备上、在更多物理场景中、以更低成本运行——谁就能赢得下一阶段。
+    </p>
     <div class="analysis-grid">
       <div class="analysis-item">
-        <div class="label">🧠 底层逻辑</div>
-        <div class="text">【底层逻辑】AI大模型训练与推理依赖大规模数据中心，其巨量能耗、用水和排放已引发周边社区担忧。然而科技公司常以“商业机密”为由拒绝公开详细环境数据，导致环保人士和监管机构难以评估真实影响，这种信息不对称成为冲突根源。</div>
+        <span class="tag tag-logic">▎底层逻辑</span>
+        <p>Apple和Nvidia在同一天分别发布AI终端战略，底层逻辑是<strong>AI经济的规模效应正在从"训练侧"转向"推理侧"</strong>。过去三年，AI行业的核心经济模型是"训练更大的模型"——训练成本决定了AI的智力上限。但从2025年底开始，行业发现：<strong>推理（inference）的成本和规模正在成为新的瓶颈</strong>。一个用户和AI对话一次的成本很低，但一个AI Agent全天候执行任务、一个机器人实时处理视觉输入——推理的token消耗量是对话的几百倍。这就是为什么Apple要把Gemini塞进手机（降低云端推理依赖），Nvidia要造Vera CPU（为AI推理专门优化）。两者都在解决同一个问题：<strong>当AI从"偶尔用"变成"一直在用"，推理效率就是新的护城河</strong>。更深一层，Apple的"Extensions"框架透露了一个更重要的信号：<strong>AI模型的"商品化"已经开始</strong>。当Apple让用户一键切换ChatGPT、Claude、Gemini——这本质上是在说"模型本身不再是差异化的核心，用户体验和终端整合才是"。这一幕与2010年代的搜索引擎大战惊人相似：通用搜索本身变成了商品，差异化来自浏览器、工具栏和默认设置。AI正在经历同样的商品化过程。<strong>谁拥有终端——谁就拥有AI时代的用户入口。</strong></p>
       </div>
       <div class="analysis-item">
-        <div class="label">📊 行业变量</div>
-        <div class="text">【行业变量】若环保压力迫使数据中心提升透明度，将加速绿色能源采购、液冷等节能技术应用，并可能催生“数据中心环境评级”标准。对谷歌、微软等云巨头而言，ESG合规成本将增加，选址争议可能延缓部分地区AI基建进度，甚至倒逼边缘计算部署。</div>
+        <span class="tag tag-variable">▎行业变量</span>
+        <p><strong>第一</strong>，AI终端战争开打——Apple拉拢Google Gemini进入iPhone，直接挑战Microsoft/OpenAI在PC端的Copilot布局。未来6个月，"AI终端"将是科技巨头最激烈的战场。<strong>第二</strong>，模型商品化加速——当所有主流模型都可以在iPhone上一键切换，模型本身的价值被削弱，平台分发的价值被放大。Google授权Gemini给Apple是一个"两面下注"的策略：既卖模型赚钱，又在Android上自己做终端。<strong>第三</strong>，隐私计算竞争升级——Apple的"on-device AI"策略（通过模型蒸馏实现本地推理）将迫使Android生态跟进，推动整个行业向端侧AI倾斜。<strong>第四</strong>，人形机器人进入开源时代——Isaac GR00T作为首个开源人形机器人参考设计，将大幅降低人形机器人的研究门槛。就像Android加速了智能手机普及一样，开源人形机器人可能加速Physical AI的落地。<strong>第五</strong>，Nvidia从"卖GPU"到"卖AI系统"——Cosmos 3 + Isaac GR00T + Vera CPU的组合意味着Nvidia不再只是一家芯片公司，而是为Physical AI提供"芯片+模型+机器人参考设计"的全栈平台。<strong>第六</strong>，芯片战争进入新维度——Vera CPU和N1X AI芯片（Nvidia+微软+Arm联合）都是针对AI Agent工作负载的全新架构设计。x86的统治地位正在被ARM+AI专用芯片双重挑战。</p>
       </div>
       <div class="analysis-item">
-        <div class="label">⚡ 科技侠点评</div>
-        <div class="text">【科技侠点评】AI的智能光环下，是实打实的碳足迹和水足迹。当大模型卷参数、卷性能时，环保账本正在成为新的竞争维度——谁能把数据中心做得更透明、更绿色，谁就能在下一轮监管和舆论博弈中占得先机。</div>
+        <span class="tag tag-comment">▎科技侠点评</span>
+        <p>今天的画册我写了很久——因为要把Apple和Nvidia放在同一条"头条"里需要勇气。它们看似不相关：一个是消费电子公司，一个是AI芯片公司。但它们在同一天做的事情，本质上是一回事：<strong>把AI从云端拽下来，塞进每一个终端</strong>。<br><br>
+        Apple的策略是最聪明的"后发制人"。当Google、OpenAI、Microsoft在模型能力和云端基础设施上烧了数百亿美元，Apple做了三件事：第一，沉默观察了三年的AI竞赛；第二，找到了最好的合作伙伴（Google Gemini）；第三，利用自己的终端优势（2.5亿台设备）设计了一个"AI平台"而非"AI模型"。<strong>这是典型的Apple式打法——不做第一个，做最好的那一个。</strong>但在AI这个赛道上，"后发"能不能"制人"还存在一个巨大的不确定：<strong>AI的用户习惯窗口有多长？</strong>当数亿人已经习惯每天使用ChatGPT和Claude，他们还会切换到Siri吗？即使Siri"更好用"——切换成本比想象中高。<br><br>
+        至于Nvidia的Physical AI战略——我是看涨的。不是因为人形机器人有多酷，而是因为<strong>Cosmos 3解决的是Physical AI最核心的瓶颈：数据</strong>。机器人训练需要的"第一人称视角数据"极度稀缺——人类不能像给互联网标注图片那样去给机器人的每一次抓取、行走、避障标注数据。Cosmos 3的"世界生成"能力可以创造一个无限的仿真训练环境——这比机器人硬件本身重要得多。<br><br>
+        最后说一句Apple的"Extensions"：允许用户在Siri里切换不同AI模型——这可能是今天所有新闻里最容易被忽视但最具颠覆性的设计。<strong>它在定义AI时代的"浏览器"</strong>。如果Siri成为AI模型的"入口"，那么所有AI公司都要向Apple交"流量税"——就像2010年代的网站要向Google交SEO税一样。这才是真正的"平台权力"。</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ===== Keywords ===== -->
+<!-- ========== 次条：AI成本危机 + OpenAI机器人团队 ========== -->
+<div class="hero-grid" id="s2">
+  <div class="hero-card">
+    <span class="card-label label-red">● AI经济算账</span>
+    <span class="source-tag">Fortune · Yahoo Finance · PCOnline · 2026.05.26-06.01</span>
+    <h2>AI终于被算清楚了经济账：Uber 4个月烧光全年预算、微软砍Claude Code授权——"All you can eat"模式终结</h2>
+    <p class="meta">Uber 84%工程师用Claude Code · 人均$500-2000/月 · 微软转向GitHub Copilot CLI · 某客户一个月$5亿</p>
+    <p class="summary">
+      2026年5月，AI行业迎来了第一个"算账时刻"。<br><br>
 
-<div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:2rem; justify-content:center;">
-  
-  <span style="font-size:0.75rem; color:#818cf8; background:rgba(129,140,248,0.1); padding:0.3rem 1rem; border-radius:100px; border:1px solid rgba(129,140,248,0.2);">数据中心</span>
-  
-  <span style="font-size:0.75rem; color:#818cf8; background:rgba(129,140,248,0.1); padding:0.3rem 1rem; border-radius:100px; border:1px solid rgba(129,140,248,0.2);">环境不透明</span>
-  
-  <span style="font-size:0.75rem; color:#818cf8; background:rgba(129,140,248,0.1); padding:0.3rem 1rem; border-radius:100px; border:1px solid rgba(129,140,248,0.2);">Erin Brockovich</span>
-  
-  <span style="font-size:0.75rem; color:#818cf8; background:rgba(129,140,248,0.1); padding:0.3rem 1rem; border-radius:100px; border:1px solid rgba(129,140,248,0.2);">AI能耗</span>
-  
+      <strong>Uber</strong>在短短4个月内用光了整个2026年的AI预算。84%的工程师都在使用Claude Code，人均月token消耗在$500到$2,000之间。CEO Dara Khosrowshahi承认10%的代码现由自主Agent编写，但COO Andrew Macdonald直言：<strong>"我们还没看到token消耗和有用功能之间的对应关系"</strong>——换句话说，钱花了，效果在哪里？<br><br>
+
+      <strong>Microsoft</strong>开始取消Windows、Microsoft 365、Teams和Surface团队员工的Claude Code直接授权，要求他们迁移到更便宜的GitHub Copilot CLI。请注意：这不是技术决策，是<strong>财务决策</strong>。微软与Anthropic的云基础设施合作不受影响，但"让所有工程师用最贵的AI工具"的阶段结束了。<br><br>
+
+      更夸张的例子：某未具名客户因为Claude许可证没有使用上限，<strong>一个月烧了$5亿</strong>。Salesforce CEO Marc Benioff透露，公司预计2026年向Anthropic支付约$3亿——他想要一个"智能路由"系统，自动把简单任务分配给便宜的模型。<br><br>
+
+      核心问题：<strong>AI的总拥有成本正在超过它替代的人力成本</strong>。当AI Agent写一段代码的成本高于一个工程师写同一段代码的工资——经济账就算不过来了。这不是AI不行，而是<strong>AI的消耗模式与传统软件完全不同</strong>：传统软件是"固定成本"（买了就能无限用），AI是"可变成本"（每次推理都要花钱）。当Agent开始全天候运作，可变成本可以膨胀到惊人的规模。<br><br>
+
+      Goldman Sachs预测：到2030年，Agentic AI的token消耗量将增长24倍，达到每月120 quadrillion tokens。成本下降（Gartner预测推理成本2030年比2025年降90%）被消耗增长远远超过——这就是AI行业的<strong>"杰文斯悖论"</strong>：效率越高，总消耗反而越大。大厂们刚刚意识到了这一点——并开始踩刹车。
+    </p>
+    <div class="analysis-grid" style="grid-template-columns: 1fr 1fr;">
+      <div class="analysis-item">
+        <span class="tag tag-logic">▎底层逻辑</span>
+        <p>AI成本危机的底层逻辑不是"AI太贵"——而是<strong>"AI的定价模式与企业IT预算结构不匹配"</strong>。传统IT采购是CAPEX模式（买软件、买服务器、签年合同），预算可预测。而AI——尤其是Agentic AI——是OPEX模式（每次推理付费），预算几乎不可预测。一个工程师开了Agent让它跑一晚上——可能就烧掉了$1000的token。这不是"预算超支"的问题——是<strong>"预算框架根本无法适用"</strong>的问题。企业CFO正在面临一个前所未有的挑战：为一个"每次使用成本无限接近零但总成本无限接近无穷大"的技术做预算。Salesforce想要"智能路由"就是一个典型回应：把简单任务导向便宜模型——本质上是对AI进行<strong>"分级定价"</strong>。就像航空公司有头等舱和经济舱——未来AI也会有"Claude做复杂推理"和"小模型做简单分类"的分层架构。这不仅仅是省钱——这是AI经济学的第一课：<strong>Token不是无限的，AI的每一次推理都有真实成本。</strong></p>
+      </div>
+      <div class="analysis-item">
+        <span class="tag tag-comment">▎科技侠点评</span>
+        <p>我连续写了19期画册，每天都强调AI的进展——但今天这条新闻可能是<strong>这19期里最重要的一条</strong>。<br><br>
+        为什么？因为当一个技术连Uber和微软都觉得"用不起"，那才是它真正遇到阻力的时候。以前所有的障碍都是技术性的（模型不够强、幻觉太多、安全风险）——那些都可以通过技术进步解决。<strong>但"成本太高"是一个经济学问题——技术进步反而可能让问题更严重（杰文斯悖论）。</strong><br><br>
+        让我说得直白一点：<strong>2026年5月之前，AI行业的叙事是"AI越来越强，什么都不在话下"。2026年5月之后，叙事变成了"AI确实强，但你付得起账单吗？"</strong><br><br>
+        这对整个行业的影响是深远的。如果Uber都烧不起Claude Code——那中小创公司怎么办？如果微软都要砍Claude授权——那谁还能"All you can eat"？<strong>AI行业的"免费午餐"第一阶段已经结束。</strong>下一阶段将不是"谁能做出最强的AI"——而是"谁能以最低的成本提供足够好的AI"。推理效率——不是模型参数——将成为新的核心竞争力。<br><br>
+        对开发者来说，这也意味着一个更理性的AI时代即将到来。不再有"用AI证明自己"的KPI，不再有"能AI就AI"的盲目热情。每个AI调用都要回答一个问题：<strong>这一块钱花得值不值？</strong>——这其实是对AI最健康的洗礼。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <span class="card-label label-purple">● 机器人新纪元</span>
+    <span class="source-tag">Nvidia GTC Taipei · CNBC · The Verge · 2026.06.01</span>
+    <h2>OpenAI正式成立机器人团队 + Nvidia发布Cosmos 3物理AI + Isaac GR00T开源人形机器人——2026年6月1日，Physical AI的"大爆炸"</h2>
+    <p class="meta">OpenAI机器人团队由Aditya Ramesh领导 · Cosmos 3 "omnimodel" · GR00T 75自由度 · 黄仁勋：Physical AI大爆炸就在眼前</p>
+    <p class="summary">
+      如果你只记住2026年6月1日的一件事——那就是<strong>Physical AI在这一天从"概念验证"进入了"工程落地"</strong>。<br><br>
+
+      <strong>OpenAI正式成立机器人团队</strong>。由DALL-E创始人Aditya Ramesh领导，短期聚焦"基础设施机器人"（仓库、工厂），长期目标是"个人机器人"。这是OpenAI在2021年解散机器人团队后的正式回归——五年间，AI发生了天翻地覆的变化，而OpenAI认为"基础模型已经足够成熟，可以为机器人提供真正的通用智能"。<br><br>
+
+      <strong>Nvidia在同一日发布三款产品形成完整Physical AI工具链：</strong>
+      — <strong>Cosmos 3</strong>：一个"全模态"世界基础模型，能理解视觉、生成视频和环境音、预测物体轨迹。用于机器人和自动驾驶的仿真训练。
+      — <strong>Isaac GR00T</strong>：首个开源人形机器人参考设计。基于Unitree H2 Plus机体（6英尺、150磅），搭配Sharp Wave触觉五指手，总计75个自由度，内置Blackwell GPU（2,070 FP4 teraflops）。售价不菲但面向全球大学和实验室开放——Unitree计划2026年底开始交付。
+      — <strong>Vera CPU</strong>：Nvidia首款完全自研CPU架构，性能是x86的1.8倍，专为AI Agent工作负载优化。<br><br>
+
+      三件事在同一天发生不是巧合——<strong>它们构成了Physical AI的"操作系统+硬件+模型"完整拼图</strong>。OpenAI提供"大脑"，Nvidia提供"神经系统和训练场"，Isaac GR00T提供"身体"。Physical AI——让AI在物理世界中移动、操作、交互——正式从愿景变成产品。
+    </p>
+    <div class="analysis-grid" style="grid-template-columns: 1fr 1fr;">
+      <div class="analysis-item">
+        <span class="tag tag-logic">▎底层逻辑</span>
+        <p>Physical AI为什么在2026年爆发，而不是2021年OpenAI解散机器人团队的时候？核心变量是<strong>基础模型（Foundation Models）的成熟</strong>。五年前的机器人需要为每一个任务单独训练一个模型——抓取一个杯子、走一段路、识别一个障碍物，每个能力都需要独立的训练数据和模型。而今天，一个通用模型（如Cosmos 3或GPT-5级别的模型）可以"理解"物理世界的基本规律——不需要为每个场景单独训练。这意味着机器人从"专用工具"变成了"通用平台"。黄仁勋说"数据是最难的问题"——这不是在说数据量不够，而是在说<strong>机器人需要的是"第一人称"数据（机器人自己的视角）而不是"第三人称"数据（摄像头拍别人）</strong>。Cosmos 3的"世界生成"能力可以合成近乎无限的第一人称训练数据——这就是为什么Nvidia认为"模型"比"硬件"更重要的原因。</p>
+      </div>
+      <div class="analysis-item">
+        <span class="tag tag-comment">▎科技侠点评</span>
+        <p>OpenAI重启机器人团队——这让我想起一句话：<strong>"每个AI公司最终都会意识到，只活在屏幕里是不够的。"</strong><br><br>
+        OpenAI五年前解散机器人团队时，理由是"机器人太难了，我们先做语言模型"。事实证明这个决策是对的——如果五年前硬做机器人，OpenAI可能就没有资源做出GPT-3和ChatGPT。但今天回归同样是对的——因为基础模型已经准备好，而机器人是"AI能力的最终出口"。<br><br>
+        不过我想说一点冷静的话：<strong>Physical AI的真正瓶颈不是模型，不是芯片，甚至不是硬件——是数据</strong>。人类从出生到成年，经历了数万小时的物理交互训练——摔倒、抓握、走路、判断距离。机器人的"物理经验"几乎为零。Cosmos 3再强大，也只是在"模拟"中生成数据——模拟和现实之间的"Sim2Real gap"（模拟到现实的落差）依然是Physical AI最大的未知数。<br><br>
+        Isaac GR00T开源的意义可能被低估了。<strong>开源机器人硬件+开源物理AI模型=全球数万实验室同时开始研究Physical AI</strong>。就像PyTorch和TensorFlow让每个博士生都能做AI研究一样——GR00T可能让每个机械工程实验室都能做人形机器人研究。<strong>2026年6月1日，Physical AI的门槛被降低了一个数量级。</strong></p>
+      </div>
+    </div>
+  </div>
 </div>
 
-
-<!-- ===== Sub Headlines ===== -->
-
-<h2 class="section-title">📌 重点关注</h2>
-<div class="sub-grid">
-  
-  <div class="sub-card">
-    <div class="meta">
-      <span class="source-tag">TechCrunch</span>
-      <span class="card-label">行业趋势</span>
-    </div>
-    <h3>CEO们的“AI精神病”：是颠覆性信仰还是泡沫前兆？</h3>
-    <p>TechCrunch播客辩论指出，部分科技领袖对AI能力的描述越来越脱离现实，类似“AI精神病”式的夸大承诺可能误导投资与公众预期。</p>
-  </div>
-  
-  <div class="sub-card">
-    <div class="meta">
-      <span class="source-tag">TechCrunch</span>
-      <span class="card-label">政策监管</span>
-    </div>
-    <h3>布罗克维奇新行动瞄准数据中心保密，社区知情权呼声高涨</h3>
-    <p>知名环保活动家Erin Brockovich将矛头指向AI数据中心，要求公开其用水、用电及排放数据，此举可能带动各地社区加入监督行列。</p>
-  </div>
-  
+<!-- ========== 分段标题 ========== -->
+<div class="section-title" id="s3">
+  <div class="line"></div>
+  <h2>N1X芯片 · GitHub计费 · Snowflake+MCP · DeepSeek · 特斯拉 · 机器人训练 · 浏览器AI</h2>
+  <div class="line"></div>
 </div>
 
+<div class="card-grid">
+  <div class="card">
+    <span class="card-label label-cyan">● 芯片战争</span>
+    <span class="source-tag">Nvidia · Microsoft · Arm · 2026.06.01</span>
+    <h3>N1X AI芯片发布：Nvidia+微软+Arm联合挑战x86——200 TOPS边缘AI性能，AI PC格局正在被重写</h3>
+    <p class="summary">
+      <strong>Nvidia、Microsoft和Arm</strong>联合发布<strong>N1X AI芯片</strong>——一款基于ARM架构的AI PC芯片，提供<strong>200 TOPS</strong>的边缘AI性能。这是对Intel和AMD x86统治地位的直接挑战。<br><br>
+      这不是"又一款AI芯片"——这是<strong>三家行业巨头的战略联盟</strong>。Nvidia提供AI计算能力，Microsoft提供操作系统和应用生态，Arm提供CPU架构基础。三家公司各自在AI基础设施上投入了数千亿美元——而N1X是他们找到的第一个"硬件层面的共同出口"。<br><br>
+      200 TOPS的边缘AI性能意味着什么？意味着<strong>可以在笔记本电脑上本地运行中型AI模型</strong>——不需要联网、不需要云端推理。结合Apple也在推进的on-device AI（通过Gemini蒸馏模型），一个清晰的趋势正在形成：<strong>AI计算正在从"云端集中"走向"端云协同"</strong>。
+    </p>
+    <div class="analysis-mini">
+      <div class="line"><strong>科技侠点评：</strong>N1X最值得关注的点不是性能参数——而是<strong>微软选择与Nvidia和Arm站在一起，而不是Intel</strong>。这是微软在芯片战略上的一个重大转向——Windows on ARM + AI加速 + Nvidia生态。如果N1X成功，Intel在PC芯片市场60年的统治地位将面临真正的挑战。<strong>AI正在成为芯片架构更替的最大推手——就像iPhone当年推动ARM在移动端的崛起一样。</strong></div>
+    </div>
+  </div>
 
-<!-- ===== Cards ===== -->
+  <div class="card">
+    <span class="card-label label-red">● 开发者生态</span>
+    <span class="source-tag">TechCrunch · PressBee · 2026.06.01</span>
+    <h3>GitHub Copilot token计费生效：月费从$29暴涨到$750——开发者集体抗议，"用AI写代码"的性价比正在被重新审视</h3>
+    <p class="summary">
+      <strong>GitHub Copilot</strong>的token计费新模式于6月1日正式生效——从固定月费$29切换到按消耗量计费，部分开发者的月账单从$29暴涨到<strong>$750</strong>。<br><br>
+      开发者社群的愤怒是可以理解的——但商业逻辑很清晰：GitHub Copilot的运营成本（推理成本）已经超过了固定月费能覆盖的范围。当一个重度用户每天调用Copilot数百次，$29/月的"All you can eat"模式在经济学上不可持续。<br><br>
+      这与上一条新闻（Uber烧光预算、微软砍Claude授权）形成了完整闭环：<strong>2026年6月，AI行业的"定价拐点"到来了</strong>。所有AI工具——从代码助手到对话机器人——都在从"固定费率"转向"按量计费"。这将是开发者体验和AI工具商业模式的根本性变化。
+    </p>
+    <div class="analysis-mini">
+      <div class="line"><strong>科技侠点评：</strong>$29到$750——这个数字本身就是AI行业现状的最佳隐喻。<strong>AI工具"看起来很便宜，用起来很贵"。</strong>对于个人开发者来说，$750/月可能让Copilot从"必备工具"变成"偶尔用的奢侈品"。对于企业来说，这反而可能是好事——<strong>按量计费迫使开发者思考"哪段代码真的需要AI辅助"</strong>，而不是无差别地让AI写所有代码。<strong>AI写代码的"狂欢期"正式结束——"效率期"开始了。</strong></div>
+    </div>
+  </div>
 
-<h2 class="section-title">📋 行业动态</h2>
-<div class="cards-grid">
-  
   <div class="card">
-    <div class="meta">
-      <span class="source-tag">TechCrunch</span>
-      <span class="card-label">大厂动态</span>
+    <span class="card-label label-green">● 企业AI基础设施</span>
+    <span class="source-tag">Snowflake · MCP · 2026.05.30</span>
+    <h3>Snowflake收购Natoma：把Anthropic的MCP协议变成企业级产品——"AI Agent连接数据"正在变成一门生意</h3>
+    <p class="summary">
+      <strong>Snowflake</strong>收购了<strong>Natoma</strong>——一个基于Anthropic的<strong>MCP（Model Context Protocol）</strong>协议构建的企业级AI Agent连接平台。<br><br>
+      MCP是Anthropic在2025年发布的一个开放协议，定义了AI模型如何安全地连接外部数据源和工具。Natoma在此基础上构建了企业级的安全层、权限管理和监控面板——让企业可以放心地让AI Agent接入内部数据库和API。<br><br>
+      Snowflake的收购逻辑：<strong>如果AI Agent是未来企业软件的核心交互方式，那么"Agent与数据的连接层"就是未来的操作系统内核</strong>。Snowflake已经有了数据（数据仓库、数据湖），收购Natoma让他们拥有了"AI Agent安全访问数据的标准通道"——这是从"数据平台"向"AI数据平台"的关键一跃。
+    </p>
+    <div class="analysis-mini">
+      <div class="line"><strong>科技侠点评：</strong>Snowflake收购Natoma是今天画册里"最不起眼但可能影响最深远"的交易。MCP协议在2025年发布时，很多人都没意识到它的潜力——<strong>一个开放的数据连接标准，可能比AI模型本身更具平台价值</strong>。就像HTTP是互联网的底层协议一样，MCP可能是"AI Agent互联网"的底层协议。谁能控制MCP的企业级实现——谁就可能控制未来AI Agent时代的"数据管道"。</div>
     </div>
-    <h4>Erin Brockovich发起“数据透明”运动</h4>
-    <p>环保偶像Brockovich要求大型AI数据中心披露环境影响报告，直指行业以商业机密为由的保密做法。</p>
   </div>
-  
+
   <div class="card">
-    <div class="meta">
-      <span class="source-tag">TechCrunch</span>
-      <span class="card-label">行业趋势</span>
+    <span class="card-label label-blue">● 中国AI竞品</span>
+    <span class="source-tag">DeepSeek · 2026.05.30</span>
+    <h3>DeepSeek组建团队开发"Code Harness"：对标Claude Code的自主编程Agent——中国AI公司开始抢占"AI编程"赛道</h3>
+    <p class="summary">
+      <strong>DeepSeek</strong>正在组建团队开发<strong>"Code Harness"</strong>——一个自主编程Agent工具，直接对标Anthropic的Claude Code和OpenAI的Codex。<br><br>
+      这是DeepSeek从"基础模型提供商"向"AI应用平台"转型的重要信号。此前DeepSeek以开源大模型（DeepSeek-V3、DeepSeek-R1）闻名——它们是中国AI领域最具竞争力的基础模型之一。Code Harness意味着DeepSeek不再满足于"卖模型"，而是要在AI编程工具这个高价值赛道上直接与国际巨头竞争。<br><br>
+      DeepSeek的竞争优势在于<strong>极低的推理成本</strong>——在Uber和微软都在为AI成本发愁的时候，DeepSeek的结构性成本优势可能成为Code Harness的杀手锏。在"AI成本算账"成为行业焦点的今天，这个时间点耐人寻味。
+    </p>
+    <div class="analysis-mini">
+      <div class="line"><strong>科技侠点评：</strong>DeepSeek做Code Harness的逻辑很简单也很聪明：<strong>在AI编程这个赛道上，"足够好+足够便宜"可能比"最好+最贵"更有市场</strong>。当Uber和微软都在抱怨Claude Code太贵的时候，一个"80%性能、20%价格"的替代品恰好切中了市场的痛点。<strong>DeepSeek选择的不是"更好"的竞争策略——而是"更省"的策略。在AI经济账被重新审视的今天，这可能是最正确的选择。</strong></div>
     </div>
-    <h4>AI精神病：科技领袖是否陷入集体幻觉？</h4>
-    <p>Equity播客探讨部分CEO对AI前景的夸大其词，将其比作“AI精神病”，警示非理性繁荣。</p>
   </div>
-  
+
   <div class="card">
-    <div class="meta">
-      <span class="source-tag">TechCrunch</span>
-      <span class="card-label">安全伦理</span>
+    <span class="card-label label-amber">●自动驾驶</span>
+    <span class="source-tag">Tesla · 2026.05.30</span>
+    <h3>特斯拉FSD V14.3.3横穿加拿大：6051公里零人工干预——"全自动驾驶"从测试数据变成了公路事实</h3>
+    <p class="summary">
+      <strong>Tesla FSD V14.3.3</strong>完成了一次历史性的驾驶：从加拿大东海岸到西海岸，全程<strong>6,051公里</strong>，<strong>零人工干预</strong>。这是迄今为止FSD完成的最长距离无干预驾驶——穿越了城市、高速公路、乡村道路和多种天气条件。<br><br>
+      这不是实验室测试，不是在封闭道路上跑圈——<strong>这是横穿一个国家的真实公路驾驶</strong>。6,051公里是什么概念？相当于从北京开到乌鲁木齐再到喀什的距离。全程零干预意味着FSD在应对真实世界的复杂性方面达到了一个全新的水平。<br><br>
+      尽管如此，FSD距离真正的L4/L5无人驾驶仍有监管障碍——但技术的成熟度正在从一个"里程数据"变成一个"实际可以信任"的水平。
+    </p>
+    <div class="analysis-mini">
+      <div class="line"><strong>科技侠点评：</strong>6,051公里零干预——这个数字本身是最好的公关。它比任何发布会都更有说服力。<strong>但我想说一个反直觉的观点：FSD的技术越来越成熟，但Waymo等Robotaxi运营商的商业壁垒反而在升高。</strong>不是因为技术不行——而是因为"比人开得好"的门槛比想象中高得多。人类司机的成本在中国和印度可能低至每小时$3-5——Robotaxi要想在成本上战胜人类司机，车辆硬件+AI系统全生命周期成本需要降到$15,000以下。<strong>技术的胜利不等于商业的胜利。</strong></div>
     </div>
-    <h4>数据中心水资源消耗引民怨</h4>
-    <p>亚利桑那等干旱地区抗议AI数据中心大量抽水，社区要求立即公开用水细节。</p>
   </div>
-  
+
   <div class="card">
-    <div class="meta">
-      <span class="source-tag">TechCrunch</span>
-      <span class="card-label">大厂动态</span>
+    <span class="card-label label-purple">● 机器人数据</span>
+    <span class="source-tag">AI Insider · TechCrunch · 2026.05.30</span>
+    <h3>Human Archive融资$8.2M：给机器人"人类经验"——用1000+头戴设备记录真实人类动作，机器人训练数据进入"量产阶段"</h3>
+    <p class="summary">
+      <strong>Human Archive</strong>完成$820万种子轮融资，解决Physical AI时代最稀缺的资源：<strong>机器人训练用的真实人类动作数据</strong>。他们的方法很直接：部署<strong>超过1,000个头戴式摄像头</strong>到家庭、酒店、餐厅、工厂——记录人类在真实环境中的运动、操作和交互数据。<br><br>
+      这些数据（视频+音频+传感器）被用于训练机器人理解和模仿人类行为。虽然面临隐私争议，但Human Archive的逻辑是：<strong>机器人需要"看"过真实的、混乱的、不可预测的人类世界——而不是实验室里精心设计的完美数据——才能真正学会在真实世界中行动。</strong><br><br>
+      同一天，<strong>Origin Lab融资$800万</strong>——帮助游戏公司变现游戏数据，用于构建AI世界模型。两条新闻的共同主题：<strong>AI行业正在经历一个"数据饥渴"阶段——尤其是物理世界的交互数据。</strong>
+    </p>
+    <div class="analysis-mini">
+      <div class="line"><strong>科技侠点评：</strong>Human Archive的$820万融资额不大，但它解决的是Physical AI最核心的瓶颈。Cosmos 3可以生成<strong>合成数据</strong>，但合成数据和真实数据之间的差距一直是Physical AI的阿克琉斯之踵。真实的人类动作数据——比如一个人如何开门、倒水、叠衣服——是机器人训练的金标准。<strong>我有一个担心：如果大公司将Human Archive这类数据公司收购垄断，Physical AI的竞争就会从"模型竞赛"变成"数据竞赛"——而数据竞赛的赢家通常是已经拥有最多用户设备的公司（Apple、Meta、Google）。</strong></div>
     </div>
-    <h4>科技巨头加大环保承诺但透明度仍受质疑</h4>
-    <p>谷歌、微软承诺2030年负碳排放，但被指未充分公开单个AI集群的实时能耗。</p>
   </div>
-  
+
   <div class="card">
-    <div class="meta">
-      <span class="source-tag">TechCrunch</span>
-      <span class="card-label">前沿研究</span>
+    <span class="card-label label-cyan">● 浏览器战争</span>
+    <span class="source-tag">TechCrunch · 2026.06.01</span>
+    <h3>2026年浏览器替代品盘点：AI Agent正成为新的"网页入口"——Perplexity Comet、Dia、OpenAI Atlas重新定义浏览</h3>
+    <p class="summary">
+      <strong>TechCrunch</strong>发布了一份2026年浏览器替代品大盘点——覆盖了AI浏览器（Perplexity Comet、The Browser Company的Dia、Opera Neon、<strong>OpenAI Atlas</strong>）、隐私浏览器（Brave、DuckDuckGo、Ladybird）和效率浏览器（Opera Air、SigmaOS、Zen Browser）。<br><br>
+      其中最大的变量是AI浏览器——它们不再只是"显示网页的工具"，而是<strong>内置AI Agent、可以自主导航和执行任务</strong>的"浏览器+AI"混合体。OpenAI的Atlas浏览器（传言中）可能会像ChatGPT颠覆搜索一样颠覆"浏览"这个行为本身。<br><br>
+      TechCrunch的核心观点：<strong>浏览器竞争正在从"谁更快、更安全"转向"谁的AI Agent更聪明"</strong>。AI时代的"浏览器战争"已经开始了——而这一次，战场不再是"谁抢占了默认搜索"——是"谁抢占了用户与互联网之间的AI中介层"。
+    </p>
+    <div class="analysis-mini">
+      <div class="line"><strong>科技侠点评：</strong>浏览器的AI化是一个被低估的趋势。当Apple在重写Siri、OpenAI可能在造浏览器、Microsoft已经用Copilot渗透Edge——<strong>"你如何访问互联网"这个最基本的行为正在被AI重构</strong>。十年后回头看，"在地址栏输入网址"这个动作可能和"拨号上网"一样古老。<strong>未来你告诉AI你想知道什么——而不是自己输入网址去查。</strong>这对SEO、广告、内容创作者的商业模式将有深远影响——但现在很少有人关注这件事。</div>
     </div>
-    <h4>AI大模型训练碳足迹估算难题</h4>
-    <p>由于企业不公开具体算时，研究人员难以准确测算GPT-4等模型全生命周期排放。</p>
   </div>
-  
+
   <div class="card">
-    <div class="meta">
-      <span class="source-tag">TechCrunch</span>
-      <span class="card-label">政策监管</span>
+    <span class="card-label label-green">● AI+芯片</span>
+    <span class="source-tag">Nvidia · Computex · 2026.06.01</span>
+    <h3>黄仁勋：Vera Rubin全面投产，Nvidia首款自研CPU Vera发布——"有用AI已经到来"，GPU不再是Nvidia的唯一故事</h3>
+    <p class="summary">
+      在GTC Taipei上，黄仁勋宣布<strong>Vera Rubin平台进入全面量产</strong>——这是Nvidia的下一代AI超级计算平台。同时发布的还有<strong>Vera CPU</strong>——Nvidia首款完全自研的CPU架构。<br><br>
+      Vera CPU基于ARM架构，专为<strong>AI Agent工作负载</strong>优化，性能是x86的1.8倍。这意味着AI Agent在Vera上运行的效果比传统CPU快近一倍——对于高吞吐量的Agent任务，这是一个巨大的效率提升。<br><br>
+      黄仁勋还宣布了<strong>Llama Mio 2</strong>——专为自动驾驶汽车设计的开放模型。黄仁勋在演讲中多次强调：<strong>"有用AI（Useful AI）已经到来。AI不是减少就业——AI是GDP的发电机。"</strong>
+    </p>
+    <div class="analysis-mini">
+      <div class="line"><strong>科技侠点评：</strong>Vera CPU是一个标志性产品——不是因为它的性能数字，而是因为<strong>它意味着Nvidia不再满足于"AI的加速器"这个角色</strong>。Vera CPU + Blackwell GPU + Cosmos 3模型 + Isaac机器人——Nvidia正在构建从芯片到模型的完整AI堆栈。当一家公司同时拥有AI芯片、AI模型和AI机器人平台，<strong>它就不只是一家"芯片公司"了——它是AI时代的"操作系统级玩家"</strong>。就像Microsoft在PC时代的地位一样——Nvidia正在成为AI时代的"基础设施定义者"。</div>
     </div>
-    <h4>欧盟拟将AI数据中心纳入能效标签指令</h4>
-    <p>知情人士称，布鲁塞尔正考虑要求AI云服务标注每算力单位能耗，类似家电能效标识。</p>
   </div>
-  
-  <div class="card">
-    <div class="meta">
-      <span class="source-tag">TechCrunch</span>
-      <span class="card-label">融资投资</span>
-    </div>
-    <h4>投资者开始关注AI的ESG隐性成本</h4>
-    <p>贝莱德等资管公司要求被投AI企业报告用水及碳排放强度，可能影响估值。</p>
-  </div>
-  
-  <div class="card">
-    <div class="meta">
-      <span class="source-tag">TechCrunch</span>
-      <span class="card-label">产品发布</span>
-    </div>
-    <h4>边缘AI或成破局之道</h4>
-    <p>面对集中式数据中心的环保压力，部分企业探索将模型推理迁移至设备端，降低长距离数据传输能耗。</p>
-  </div>
-  
-  <div class="card">
-    <div class="meta">
-      <span class="source-tag">TechCrunch</span>
-      <span class="card-label">前沿研究</span>
-    </div>
-    <h4>Brockovich称AI能耗“如同新铅污染”</h4>
-    <p>她认为AI行业对环境的影响可能被严重低估，并呼吁联邦机构介入调查。</p>
-  </div>
-  
 </div>
 
-
-<!-- ===== Data Panel ===== -->
-
-<h2 class="section-title">📊 数据洞察</h2>
-<div class="data-panel">
-  
-  <div class="data-item">
-    <div class="value">约1-2%</div>
-    <div class="label">全球数据中心电力消耗占比</div>
-    <div class="desc">预计2026年AI需求将推动该比例上升至上世纪末水平</div>
+<!-- ========== 关键数据面板 ========== -->
+<div class="data-panel" id="s4">
+  <h2>▎关键数据一览</h2>
+  <div class="data-grid">
+    <div class="data-cell">
+      <div class="val">Apple</div>
+      <div class="lbl">Siri全面AI化+Gemini</div>
+      <div class="sub">WWDC 2026 · 最大改版</div>
+    </div>
+    <div class="data-cell">
+      <div class="val">$5亿/月</div>
+      <div class="lbl">客户AI工具支出</div>
+      <div class="sub">无上限Claude许可证</div>
+    </div>
+    <div class="data-cell">
+      <div class="val">Cosmos 3</div>
+      <div class="lbl">Nvidia物理AI模型</div>
+      <div class="sub">世界生成+动作预测</div>
+    </div>
+    <div class="data-cell">
+      <div class="val">GR00T</div>
+      <div class="lbl">开源人形机器人</div>
+      <div class="sub">75自由度 · Unitree制造</div>
+    </div>
+    <div class="data-cell">
+      <div class="val">200 TOPS</div>
+      <div class="lbl">N1X AI芯片</div>
+      <div class="sub">Nvidia+微软+Arm联盟</div>
+    </div>
+    <div class="data-cell">
+      <div class="val">6,051km</div>
+      <div class="lbl">特斯拉FSD零干预</div>
+      <div class="sub">横穿加拿大全境</div>
+    </div>
+    <div class="data-cell">
+      <div class="val">$750/月</div>
+      <div class="lbl">GitHub Copilot新账单</div>
+      <div class="sub">token计费 · 从$29暴涨</div>
+    </div>
+    <div class="data-cell">
+      <div class="val">#19</div>
+      <div class="lbl">今日画册期号</div>
+      <div class="sub">2026.06.01 · 超级科技侠</div>
+    </div>
   </div>
-  
-  <div class="data-item">
-    <div class="value">约0.01度</div>
-    <div class="label">单个ChatGPT查询耗电</div>
-    <div class="desc">为传统谷歌搜索的10倍以上，日活过亿时年增达数十亿度</div>
-  </div>
-  
-  <div class="data-item">
-    <div class="value">日均数亿加仑</div>
-    <div class="label">美国数据中心用水量</div>
-    <div class="desc">部分地区已出现与农业争水现象</div>
-  </div>
-  
-  <div class="data-item">
-    <div class="value">仅12%企业披露</div>
-    <div class="label">AI透明度调查</div>
-    <div class="desc">据非营利组织统计，目前仅少数AI公司公开模型训练具体能耗</div>
-  </div>
-  
 </div>
 
+<!-- ========== 结尾点评 ========== -->
+<div class="hero-card featured" style="margin-top: 2rem; background: linear-gradient(145deg, #0a0a1a, #0a1a2e); border-color: #1a2e3a;" id="s5">
+  <span class="card-label label-blue">◆ 主编结语</span>
+  <h2>2026年6月1日：<br>"终端革命——当AI从云端走向每一个设备、每一个物理场景"</h2>
+  <p class="summary" style="font-size:1rem;">
+    今天是AI画册的第19期。刚好是六一儿童节——但AI世界没有儿童节。<br><br>
 
-<!-- ===== Closing ===== -->
+    今天的画册有一个贯穿始终的核心叙事：<strong>AI正在从"云端"走向"终端"</strong>。<br><br>
 
-<div class="closing">
-  <p>当AI重构世界的时候，我们或许该先计算一下它的环境账单——毕竟，一个被碳和秘密笼罩的智能未来，难言真正的智慧。</p>
-</div>
+    · Apple重写Siri植入Gemini——AI终端：你的手机<br>
+    · Nvidia发布Cosmos 3 + Vera CPU——AI终端：机器人<br>
+    · OpenAI成立机器人团队——AI终端：物理世界<br>
+    · N1X芯片200 TOPS边缘AI——AI终端：你的电脑<br>
+    · FSD横穿加拿大6,051公里——AI终端：你的车<br>
+    · AI浏览器争夺网页入口——AI终端：你访问互联网的方式<br>
+    · Human Archive采集真实动作数据——AI终端：每一个人类动作<br><br>
 
+    "AI"这个抽象的概念，正在被嵌入到每一个具体的终端设备中——手机、电脑、汽车、机器人、浏览器。<strong>AI不再是你"打开某个网站"才能用的东西——AI是你每时每刻都在使用的"环境"</strong>。<br><br>
 
-<!-- ===== Footer ===== -->
-<div class="footer">
-  <div class="brand">超能科技侠</div>
-  <div class="links">
-    <a href="https://nickpan888.github.io/ai-daily-album/">最新一期</a>
-    <a href="https://nickpan888.github.io/ai-daily-album/archive">历史存期</a>
+    但同时，今天画册里的另一条主线——AI成本危机——在提醒我们：<strong>AI的终端化有一个巨大的经济账需要算清楚</strong>。Uber烧光了$5亿预算、微软砍了Claude授权、Copilot涨价26倍——这些信号说明：<strong>AI的"免费午餐"已经吃完了</strong>。每个终端、每次推理、每个Agent都在消耗真实的经济资源。<br><br>
+
+    所以今天画册的真正结论是：<strong>AI的"第一阶段"（模型能力竞赛）已经结束——"第二阶段"（终端渗透×经济可持续性）刚刚开始</strong>。在这个新阶段，赢家不是"模型最强的公司"，而是"能用最少的推理成本在最多终端上提供足够好AI的公司"。<br><br>
+
+    作为每天都在追踪AI进展的人，我越来越强烈地感受到：<strong>AI不是在"进化"——AI是在"扩散"</strong>。它正在从少数几个数据中心扩散到每一台手机、每一辆车、每一个工厂、每一个家庭。这个扩散的速度本身——就是2026年最大的AI新闻。<br><br>
+
+    六一快乐。明天见。
+  </p>
+  <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem;">
+    <span class="tagline">数据截至 2026.06.01 18:00 UTC</span>
+    <span class="tagline">来源：TechCrunch + Bloomberg + Fortune + 多家媒体</span>
+    <span class="tagline">超级科技侠 · 首席内容官</span>
   </div>
-  <div class="qr">
-    <img src="qrcode.png" alt="超能科技侠">
-    <div class="qr-label">扫码关注 · 每日深度解读</div>
+</div>
+
+<div class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-qr">
+      <img src="qrcode.png" alt="超能科技侠">
+    </div>
+    <div class="footer-info">
+      <div class="footer-brand">
+        <span class="highlight">◆ AI 热点画册</span> · 超级科技侠 · 第 19 期
+      </div>
+      <div class="footer-meta">2026.06.01</div>
+      <div class="footer-divider"></div>
+      <div class="footer-links">
+        <a href="https://techcrunch.com/" target="_blank">TechCrunch</a>
+        <span class="sep">/</span>
+        <a href="https://www.brief.news/ai" target="_blank">Brief.ai</a>
+        <span class="sep">/</span>
+        <a href="archive.html">📂 查看所有期次</a>
+      </div>
+      <div class="footer-contact">
+        <span>扫码联系 <strong>超能科技侠</strong>  ·  深度交流 · 合作 · 反馈</span>
+      </div>
+    </div>
   </div>
-  <div class="copyright">© 2026 超能科技侠 · 让一部分人先看懂 AI</div>
 </div>
 
 </div>
+
 </body>
 </html>
